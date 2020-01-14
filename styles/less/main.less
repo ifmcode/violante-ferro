@@ -3,9 +3,9 @@
 body {
   padding: 0;
   margin: 0;
-  height: 100vh;
+  /*height: 100vh;
   width: 100%;
-  overflow: hidden;
+  overflow: hidden;*/
 }
 
 p, h1, h2, h3, span {
@@ -80,7 +80,7 @@ p, h1, h2, h3, span {
 #home-page {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   overflow: hidden;
   z-index: 0;
 
@@ -173,7 +173,7 @@ p, h1, h2, h3, span {
   top: 100vh;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   overflow: hidden;
   background-color: #232020;
   z-index: 1;
@@ -280,40 +280,49 @@ p, h1, h2, h3, span {
     }
   }
   
-  .top-wrapper{
+  .header{
     position: relative;
     height: 100vh;
     width: 100%;
+    overflow: hidden;
 
     .left-part {
       position: relative;
-      display: inline-block;
-      height: 100%;
+      float: left;
+      height: 100vh;
       width: 50%;
       background-color: white;
 
       .text-wrapper {
-        position: relative;
-        width: 100%;
-        padding: 80px 60px;
+        position: absolute;
+        left: 80px;
+        top: 220px;
+        width: 70%;
         box-sizing: border-box;
 
         .subtitle {
-
+          position: relative;
+          display: block;
+          color: #FF9200;
+          font-size: 2rem;
+          margin-bottom: 30px;
         }
 
         .title {
-
+          position: relative;
+          display: block;
+          color: black;
+          font-size: 5.5rem;
         }
       }
     }
 
     .right-part {
       position: relative;
-      display: inline-block;
-      height: 100%;
+      float: left;
+      height: 100vh;
       width: 50%;
-      margin-left: -5px;
+      
       img {
         position: absolute;
         top: 50%;
