@@ -270,16 +270,20 @@ a {
 body {
   padding: 0;
   margin: 0;
-  /*height: 100vh;
   width: 100%;
-  overflow: hidden;*/
+  overflow-x: hidden;
 }
 p,
 h1,
 h2,
 h3,
-span {
+span,
+li {
   font-family: 'Ubuntu', sans-serif;
+}
+ul {
+  margin: 0;
+  padding: 0;
 }
 .vertical-centered {
   top: 50%;
@@ -314,31 +318,21 @@ span {
 .section-link:hover {
   opacity: 1;
 }
-.logo-wrapper {
-  position: absolute;
-  top: 40px;
-  left: 40px;
-  z-index: 3;
-}
-.logo-wrapper img {
+.header-section {
   position: relative;
-  height: 40px;
-  width: auto;
-}
-#home-page {
-  position: relative;
-  width: 100%;
   height: 100vh;
-  overflow: hidden;
-  z-index: 0;
-}
-#home-page .background-image {
-  position: relative;
   width: 100%;
-  height: 100%;
   overflow: hidden;
 }
-#home-page .background-image img {
+.header-section .left-part,
+.header-section .right-part {
+  position: relative;
+  float: left;
+  height: 100vh;
+  width: 50%;
+}
+.header-section .left-part img,
+.header-section .right-part img {
   position: absolute;
   top: 50%;
   left: 0;
@@ -348,48 +342,88 @@ span {
   min-height: 100%;
   transform: translateY(-50%);
 }
-#home-page .main-title {
+.paragraph {
+  font-size: 1.4rem;
+  letter-spacing: 3px;
+  line-height: 2rem;
+}
+.logo-wrapper {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  z-index: 3;
+  cursor: pointer;
+}
+.logo-wrapper img {
+  position: relative;
+  height: 40px;
+  width: auto;
+}
+#home-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 0;
+}
+#home-section .background-image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+#home-section .background-image img {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: auto;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translateY(-50%);
+}
+#home-section .main-title {
   position: absolute;
   color: #FF9200;
   width: 60%;
   text-align: center;
   font-size: 8rem;
 }
-#home-page .link-to-about-page {
+#home-section .link-to-about-section {
   left: 40px;
 }
-#home-page .link-to-about-page .link-svg {
+#home-section .link-to-about-section .link-svg {
   display: inline-block;
   vertical-align: middle;
   transform: rotate(180deg);
 }
-#home-page .link-to-about-page .link-text {
+#home-section .link-to-about-section .link-text {
   display: inline-block;
   vertical-align: middle;
 }
-#home-page .link-to-services-page {
+#home-section .link-to-services-section {
   right: 40px;
 }
-#home-page .link-to-services-page .link-svg {
+#home-section .link-to-services-section .link-svg {
   display: inline-block;
   vertical-align: middle;
 }
-#home-page .link-to-services-page .link-text {
+#home-section .link-to-services-section .link-text {
   display: inline-block;
   vertical-align: middle;
 }
-#home-page .link-to-contact-page {
+#home-section .link-to-contact-section {
   bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
 }
-#home-page .link-to-contact-page .link-svg {
+#home-section .link-to-contact-section .link-svg {
   display: block;
   margin: 0 auto;
   margin-top: 10px;
   transform: rotate(90deg);
 }
-#contact-page {
+#contact-section {
   position: absolute;
   top: 100vh;
   left: 0;
@@ -398,45 +432,45 @@ span {
   overflow: hidden;
   background-color: #232020;
   z-index: 1;
+  display: none;
 }
-#contact-page .link-to-home-page {
+#contact-section .link-to-home-section {
   top: 40px;
   z-index: 2;
 }
-#contact-page .link-to-home-page .link-svg {
+#contact-section .link-to-home-section .link-svg {
   display: block;
   margin: 0 auto;
   margin-bottom: 10px;
   transform: rotate(-90deg);
 }
-#contact-page .link-to-home-page .link-text {
+#contact-section .link-to-home-section .link-text {
   display: block;
 }
-#contact-page .contact-paragraph {
+#contact-section .contact-paragraph {
   position: relative;
   display: block;
   width: 50%;
-  font-size: 32px;
   color: #FF9200;
   margin: 0 auto;
   padding-top: 160px;
   text-align: justify;
   text-align-last: center;
 }
-#contact-page .contact-data {
+#contact-section .contact-data {
   position: relative;
   display: block;
   text-align: center;
   color: white;
   letter-spacing: 4px;
 }
-#contact-page .contact-data.email {
+#contact-section .contact-data.email {
   margin-top: 50px;
 }
-#contact-page .contact-data.phone-number {
+#contact-section .contact-data.phone-number {
   margin-top: 20px;
 }
-#contact-page .social-network-wrapper {
+#contact-section .social-network-wrapper {
   position: relative;
   display: block;
   width: 100px;
@@ -444,89 +478,163 @@ span {
   margin: 0 auto;
   margin-top: 50px;
 }
-#contact-page .social-network-wrapper .social-network-link {
+#contact-section .social-network-wrapper .social-network-link {
   position: absolute;
   width: 30px;
   height: 30px;
   cursor: pointer;
 }
-#contact-page .social-network-wrapper .social-network-link svg {
+#contact-section .social-network-wrapper .social-network-link svg {
   width: 30px;
   height: 30px;
 }
-#contact-page .social-network-wrapper .social-network-link.instagram {
+#contact-section .social-network-wrapper .social-network-link.facebook {
   top: 0;
   left: 0;
 }
-#contact-page .social-network-wrapper .social-network-link.facebook {
+#contact-section .social-network-wrapper .social-network-link.instagram {
   top: 0;
   right: 0;
 }
-#about-page {
+#about-section {
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
   z-index: 1;
 }
-#about-page .link-to-home-page {
+#about-section .link-to-home-section {
   right: 40px;
   z-index: 2;
 }
-#about-page .link-to-home-page .link-svg {
+#about-section .link-to-home-section .link-svg {
   display: inline-block;
   vertical-align: middle;
 }
-#about-page .link-to-home-page .link-text {
+#about-section .link-to-home-section .link-text {
   display: inline-block;
   vertical-align: middle;
 }
-#about-page .header {
-  position: relative;
-  height: 100vh;
-  width: 100%;
-  overflow: hidden;
-}
-#about-page .header .left-part {
-  position: relative;
-  float: left;
-  height: 100vh;
-  width: 50%;
+#about-section .header-section .left-part {
   background-color: white;
 }
-#about-page .header .left-part .text-wrapper {
+#about-section .header-section .left-part .text-wrapper {
   position: absolute;
   left: 80px;
   top: 220px;
   width: 70%;
   box-sizing: border-box;
 }
-#about-page .header .left-part .text-wrapper .subtitle {
+#about-section .header-section .left-part .text-wrapper .subtitle {
   position: relative;
   display: block;
   color: #FF9200;
-  font-size: 2rem;
-  margin-bottom: 30px;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
 }
-#about-page .header .left-part .text-wrapper .title {
+#about-section .header-section .left-part .text-wrapper .title {
   position: relative;
   display: block;
   color: black;
   font-size: 5.5rem;
 }
-#about-page .header .right-part {
+#about-section .about-wrapper {
   position: relative;
-  float: left;
-  height: 100vh;
-  width: 50%;
-}
-#about-page .header .right-part img {
-  position: absolute;
-  top: 50%;
-  left: 0;
   width: 100%;
-  height: auto;
-  min-width: 100%;
-  min-height: 100%;
+  padding: 100px 0;
+  min-height: 100vh;
+  padding-left: 13%;
+  box-sizing: border-box;
+}
+#about-section .about-wrapper .about-paragraph {
+  position: absolute;
+  width: 65%;
+  top: 40%;
   transform: translateY(-50%);
+}
+#services-section {
+  position: absolute;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  z-index: 1;
+}
+#services-section .link-to-home-section {
+  left: 40px;
+  z-index: 2;
+}
+#services-section .link-to-home-section .link-svg {
+  display: inline-block;
+  vertical-align: middle;
+  transform: rotate(180deg);
+}
+#services-section .link-to-home-section .link-text {
+  display: inline-block;
+  vertical-align: middle;
+}
+#services-section .header-section .right-part {
+  background-color: white;
+}
+#services-section .header-section .right-part .services-list {
+  position: absolute;
+  right: 80px;
+  width: 70%;
+  box-sizing: border-box;
+}
+#services-section .header-section .right-part .services-list .service-item {
+  position: relative;
+  display: block;
+  margin-bottom: 30px;
+  font-size: 4rem;
+  text-align: right;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 3px;
+}
+#services-section .header-section .right-part .services-list .service-item:last-child {
+  margin-bottom: 0px;
+}
+.footer {
+  position: absolute;
+  width: 100%;
+  height: 100px;
+  bottom: 0;
+  left: 0;
+}
+.footer .footer-wrapper {
+  position: absolute;
+  width: 160px;
+  height: 34px;
+}
+.footer .footer-wrapper .contact-data {
+  position: absolute;
+  color: #FF9200;
+  letter-spacing: 4px;
+}
+.footer .footer-wrapper .social-network-wrapper {
+  position: relative;
+  width: 100px;
+  height: 30px;
+  margin: 0 30px;
+}
+.footer .footer-wrapper .social-network-wrapper .social-network-link {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+.footer .footer-wrapper .social-network-wrapper .social-network-link svg {
+  width: 30px;
+  height: 30px;
+}
+.footer .footer-wrapper .social-network-wrapper .social-network-link.instagram {
+  top: 0;
+  left: 0;
+}
+.footer .footer-wrapper .social-network-wrapper .social-network-link.instagram svg {
+  fill: black;
+}
+.footer .footer-wrapper .social-network-wrapper .social-network-link.facebook {
+  top: 0;
+  right: 0;
 }

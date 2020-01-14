@@ -3,13 +3,17 @@
 body {
   padding: 0;
   margin: 0;
-  /*height: 100vh;
   width: 100%;
-  overflow: hidden;*/
+  overflow-x: hidden;
 }
 
-p, h1, h2, h3, span {
+p, h1, h2, h3, span, li {
   font-family: 'Ubuntu', sans-serif;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
 }
 
 .vertical-centered {
@@ -64,11 +68,47 @@ p, h1, h2, h3, span {
   }
 }
 
+.header-section {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+
+  .left-part, .right-part {
+    position: relative;
+    float: left;
+    height: 100vh;
+    width: 50%;
+
+    img {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: auto;
+      min-width: 100%;
+      min-height: 100%;
+      -webkit-transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      -o-transform: translateY(-50%);
+      transform: translateY(-50%); 
+    }
+  }
+}
+
+.paragraph {
+  font-size: 1.4rem;
+  letter-spacing: 3px;
+  line-height: 2rem;
+}
+
 .logo-wrapper {
   position: absolute;
   top: 40px;
   left: 40px;
   z-index: 3;
+  cursor: pointer;
 
   img {
     position: relative;
@@ -77,7 +117,7 @@ p, h1, h2, h3, span {
   }
 }
 
-#home-page {
+#home-section {
   position: relative;
   width: 100%;
   height: 100vh;
@@ -113,7 +153,7 @@ p, h1, h2, h3, span {
     font-size: 8rem;
   }
 
-  .link-to-about-page {
+  .link-to-about-section {
     left: 40px;
 
     .link-svg {
@@ -132,7 +172,7 @@ p, h1, h2, h3, span {
     }
   }
   
-  .link-to-services-page {
+  .link-to-services-section {
     right: 40px;
 
     .link-svg {
@@ -146,7 +186,7 @@ p, h1, h2, h3, span {
     }
   }
 
-  .link-to-contact-page {
+  .link-to-contact-section {
     bottom: 40px;
     left: 50%;
     -webkit-transform: translateX(-50%);
@@ -168,7 +208,7 @@ p, h1, h2, h3, span {
   }
 }
 
-#contact-page {
+#contact-section {
   position: absolute;
   top: 100vh;
   left: 0;
@@ -177,8 +217,9 @@ p, h1, h2, h3, span {
   overflow: hidden;
   background-color: #232020;
   z-index: 1;
+  display: none;
 
-  .link-to-home-page {
+  .link-to-home-section {
     top: 40px;
     z-index: 2;
 
@@ -202,7 +243,6 @@ p, h1, h2, h3, span {
     position: relative;
     display: block;
     width: 50%;
-    font-size: 32px;
     color: #FF9200;
     margin: 0 auto;
     padding-top: 160px;
@@ -245,12 +285,12 @@ p, h1, h2, h3, span {
         height: 30px;
       }
 
-      &.instagram {
+      &.facebook {
         top: 0;
         left: 0;
       }
 
-      &.facebook {
+      &.instagram {
         top: 0;
         right: 0;
       }
@@ -258,14 +298,14 @@ p, h1, h2, h3, span {
   }
 }
 
-#about-page {
+#about-section {
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
   z-index: 1;
 
-  .link-to-home-page {
+  .link-to-home-section {
     right: 40px;
     z-index: 2;
 
@@ -280,66 +320,156 @@ p, h1, h2, h3, span {
     }
   }
   
-  .header{
-    position: relative;
-    height: 100vh;
-    width: 100%;
-    overflow: hidden;
+  .header-section  .left-part {
+    background-color: white;
+    .text-wrapper {
+      position: absolute;
+      left: 80px;
+      top: 220px;
+      width: 70%;
+      box-sizing: border-box;
 
-    .left-part {
-      position: relative;
-      float: left;
-      height: 100vh;
-      width: 50%;
-      background-color: white;
-
-      .text-wrapper {
-        position: absolute;
-        left: 80px;
-        top: 220px;
-        width: 70%;
-        box-sizing: border-box;
-
-        .subtitle {
-          position: relative;
-          display: block;
-          color: #FF9200;
-          font-size: 2rem;
-          margin-bottom: 30px;
-        }
-
-        .title {
-          position: relative;
-          display: block;
-          color: black;
-          font-size: 5.5rem;
-        }
+      .subtitle {
+        position: relative;
+        display: block;
+        color: #FF9200;
+        font-size: 1.5rem;
+        margin-bottom: 20px;
       }
-    }
 
-    .right-part {
-      position: relative;
-      float: left;
-      height: 100vh;
-      width: 50%;
-      
-      img {
-        position: absolute;
-        top: 50%;
-        left: 0;
-        width: 100%;
-        height: auto;
-        min-width: 100%;
-        min-height: 100%;
-        -webkit-transform: translateY(-50%);
-        -moz-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-        -o-transform: translateY(-50%);
-        transform: translateY(-50%); 
+      .title {
+        position: relative;
+        display: block;
+        color: black;
+        font-size: 5.5rem;
       }
     }
   }
 
+  .about-wrapper {
+    position: relative;
+    width: 100%;
+    padding: 100px 0;
+    min-height: 100vh;
+    padding-left: 13%;
+    box-sizing: border-box;
+
+    .about-paragraph {
+      position: absolute;
+      width: 65%;
+      top:  40%;
+      -webkit-transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      -o-transform: translateY(-50%);
+      transform: translateY(-50%);
+    }
+  }
+}
+
+#services-section {
+  position: absolute;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  z-index: 1;
+
+  .link-to-home-section {
+    left: 40px;
+    z-index: 2;
+
+    .link-svg {
+      display: inline-block;
+      vertical-align: middle;
+      -webkit-transform: rotate(180deg);
+      -moz-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+      -o-transform: rotate(180deg);
+      transform: rotate(180deg);
+    }
+
+    .link-text {
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+
+  .header-section  .right-part {
+    background-color: white;
+    .services-list {
+      position: absolute;
+      right: 80px;
+      width: 70%;
+      box-sizing: border-box;
+      .service-item {
+        position: relative;
+        display: block;
+        margin-bottom: 30px;
+        font-size: 4rem;
+        text-align: right;
+        cursor: pointer;
+        font-weight: 600;
+        letter-spacing: 3px;
+
+        &:last-child {
+          margin-bottom: 0px;
+        }
+      }
+    }
+  }
+}
+
+.footer {
+  position: absolute;
+  width: 100%;
+  height: 100px;
+  bottom: 0;
+  left: 0;
+
+  .footer-wrapper{
+    position: absolute;
+    width: 160px;
+    height: 34px;
+
+    .contact-data{
+      position: absolute;
+      color: #FF9200;
+      letter-spacing: 4px;
+    }
+  
+    .social-network-wrapper {
+      position: relative;
+      width: 100px;
+      height: 30px;
+      margin: 0 30px;
+  
+      .social-network-link {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+  
+        svg {
+          width: 30px;
+          height: 30px;
+        }
+  
+        &.instagram {
+          top: 0;
+          left: 0;
+
+          svg {
+            fill: black;
+          }
+        }
+  
+        &.facebook {
+          top: 0;
+          right: 0;
+        }
+      }
+    }
+  }
 
 }
 
