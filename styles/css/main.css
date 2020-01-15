@@ -285,6 +285,9 @@ ul {
   margin: 0;
   padding: 0;
 }
+.invisible {
+  display: none;
+}
 .vertical-centered {
   top: 50%;
   transform: translateY(-50%);
@@ -557,7 +560,9 @@ ul {
   top: 0;
   right: -100%;
   width: 100%;
+  height: 100vh;
   z-index: 1;
+  display: none;
 }
 #services-section .link-to-home-section {
   left: 40px;
@@ -572,16 +577,24 @@ ul {
   display: inline-block;
   vertical-align: middle;
 }
+#services-section .header-section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+}
 #services-section .header-section .right-part {
   background-color: white;
 }
-#services-section .header-section .right-part .services-list {
+#services-section .services-list {
   position: absolute;
   right: 80px;
   width: 70%;
   box-sizing: border-box;
+  z-index: 5;
 }
-#services-section .header-section .right-part .services-list .service-item {
+#services-section .services-list .service-item {
   position: relative;
   display: block;
   margin-bottom: 30px;
@@ -591,8 +604,30 @@ ul {
   font-weight: 600;
   letter-spacing: 3px;
 }
-#services-section .header-section .right-part .services-list .service-item:last-child {
+#services-section .services-list .service-item:last-child {
   margin-bottom: 0px;
+}
+#services-section .service-wrapper {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  padding: 100px 190px;
+  box-sizing: border-box;
+  background-color: white;
+}
+#services-section .service-wrapper .title {
+  position: relative;
+  display: block;
+  margin-bottom: 60px;
+  font-size: 5.5rem;
+  color: black;
+}
+#services-section .service-wrapper .service-paragraph {
+  position: relative;
+  display: block;
+  width: 65%;
 }
 .footer {
   position: absolute;
