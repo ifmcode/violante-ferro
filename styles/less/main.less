@@ -1,4 +1,5 @@
-/*! normalize.css v1.0.0 | MIT License | git.io/normalize */ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary{display:block}audio,canvas,video{display:inline-block;*display:inline;*zoom:1}audio:not([controls]){display:none;height:0}[hidden]{display:none}html{font-size:100%;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}html,button,input,select,textarea{font-family:sans-serif}body{margin:0}a:focus{outline:thin dotted}a:active,a:hover{outline:0}h1{font-size:2em;margin:.67em 0}h2{font-size:1.5em;margin:.83em 0}h3{font-size:1.17em;margin:1em 0}h4{font-size:1em;margin:1.33em 0}h5{font-size:.83em;margin:1.67em 0}h6{font-size:.75em;margin:2.33em 0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:bold}blockquote{margin:1em 40px}dfn{font-style:italic}mark{background:#ff0;color:#000}p,pre{margin:1em 0}code,kbd,pre,samp{font-family:monospace,serif;_font-family:'courier new',monospace;font-size:1em}pre{white-space:pre;white-space:pre-wrap;word-wrap:break-word}q{quotes:none}q:before,q:after{content:'';content:none}small{font-size:75%}dl,menu,ol,ul{margin:1em 0}dd{margin:0 0 0 40px}menu,ol,ul{padding:0 0 0 40px}nav ul,nav ol{list-style:none;list-style-image:none}img{border:0;-ms-interpolation-mode:bicubic}svg:not(:root){overflow:hidden}figure{margin:0}form{margin:0}fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:.35em .625em .75em}legend{border:0;padding:0;white-space:normal;*margin-left:-7px}button,input,select,textarea{font-size:100%;margin:0;vertical-align:baseline;*vertical-align:middle}button,input{line-height:normal}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer;*overflow:visible}button[disabled],input[disabled]{cursor:default}input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0;*height:13px;*width:13px}input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}textarea{overflow:auto;vertical-align:top}table{border-collapse:collapse;border-spacing:0} h1,h2,h3,h4,h5,h6,p,ul,li,span{margin:0; -webkit-margin-before:0px; -webkit-margin-after:0px; -webkit-margin-start: 0px; -webkit-margin-end: 0px; line-height: 1em; } *:not(input){-webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -webkit-tap-highlight-color: rgba(0,0,0,0); -webkit-tap-highlight-color: transparent; } /*Remove Mozilla Firefox Border – Remove Dotted Line Around Link */ a:active, a:focus ,input:focus, input:visited, input:active, input:hover, input:required, input:valid, input:invalid, textarea:focus, textarea:visited, textarea:active, textarea:hover, textarea:required, textarea:valid, textarea:invalid,select:focus, select:visited, select:active, select:hover, select:required, select:valid, select:invalid{outline: none !important; } a{cursor: pointer; text-decoration:none; }
+@import "./variables.less";
+@import "./normalize.less";
 
 body {
   padding: 0;
@@ -58,13 +59,13 @@ ul {
     position: relative;
     width: 30px;
     height: 20px;
-    fill: #FF9200;
+    fill: @orange;
   }
 
   .link-text {
     position: relative;
     font-size: 16px;
-    color: #FF9200;
+    color: @orange;
   }
 
   &:hover {
@@ -122,7 +123,9 @@ ul {
 }
 
 #home-section {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100vh;
   overflow: hidden;
@@ -151,7 +154,7 @@ ul {
 
   .main-title {
     position: absolute;
-    color: #FF9200;
+    color: @orange;
     width: 60%;
     text-align: center;
     font-size: 8rem;
@@ -176,7 +179,7 @@ ul {
     }
   }
   
-  .link-to-services-section {
+  .link-to-services-menu-section {
     right: 40px;
 
     .link-svg {
@@ -247,7 +250,7 @@ ul {
     position: relative;
     display: block;
     width: 50%;
-    color: #FF9200;
+    color: @orange;
     margin: 0 auto;
     padding-top: 160px;
     text-align: justify;
@@ -258,7 +261,7 @@ ul {
     position: relative;
     display: block;
     text-align: center;
-    color: white;
+    color: @white;
     letter-spacing: 4px;
 
     &.email {
@@ -325,7 +328,7 @@ ul {
   }
   
   .header-section  .left-part {
-    background-color: white;
+    background-color: @white;
     .text-wrapper {
       position: absolute;
       left: 80px;
@@ -336,7 +339,7 @@ ul {
       .subtitle {
         position: relative;
         display: block;
-        color: #FF9200;
+        color: @orange;
         font-size: 1.5rem;
         margin-bottom: 20px;
       }
@@ -344,7 +347,7 @@ ul {
       .title {
         position: relative;
         display: block;
-        color: black;
+        color: @black;
         font-size: 5.5rem;
       }
     }
@@ -371,10 +374,10 @@ ul {
   }
 }
 
-#services-section {
+#services-menu-section {
   position: absolute;
   top: 0;
-  right: -100%;
+  left: 100%;
   width: 100%;
   height: 100vh;
   z-index: 1;
@@ -400,6 +403,30 @@ ul {
     }
   }
 
+  .back-to-services-menu {
+    right: 80px;
+    top: 40px;
+    z-index: 2;
+    display: none;
+
+    .link-svg {
+      display: inline-block;
+      vertical-align: middle;
+      -webkit-transform: rotate(270deg);
+      -moz-transform: rotate(270deg);
+      -ms-transform: rotate(270deg);
+      -o-transform: rotate(270deg);
+      transform: rotate(270deg);
+      fill: @black;
+    }
+
+    .link-text {
+      display: inline-block;
+      vertical-align: middle;
+      color: @black;
+    }
+  }
+
   .header-section   {
     position: absolute;
     top: 0;
@@ -407,28 +434,40 @@ ul {
     width: 100%;
     height: 100vh;
     .right-part {
-      background-color: white;
+      background-color: @white;
     }
   }
 
   .services-list {
     position: absolute;
     right: 80px;
-    width: 70%;
+    width: 40%;
     box-sizing: border-box;
     z-index: 5;
     .service-item {
       position: relative;
       display: block;
+      float: right;
+      clear: both;
       margin-bottom: 30px;
       font-size: 4rem;
       text-align: right;
       cursor: pointer;
       font-weight: 600;
       letter-spacing: 3px;
+      color: @black;
+      transition: color .6s ease-out;
+
+      &.selected {
+        color: @orange;
+      }
 
       &:last-child {
         margin-bottom: 0px;
+      }
+
+      &:hover {
+        color: @orange;
       }
     }
   }
@@ -438,17 +477,17 @@ ul {
     top: 100%;
     left: 0;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     padding: 100px 190px;
     box-sizing: border-box;
-    background-color: white;
+    background-color: @white;
 
     .title {
       position: relative;
       display: block;
       margin-bottom: 60px;
       font-size: 5.5rem;
-      color: black;
+      color: @black;
     }
 
     .service-paragraph {
@@ -473,7 +512,7 @@ ul {
 
     .contact-data{
       position: absolute;
-      color: #FF9200;
+      color: @orange;
       letter-spacing: 4px;
     }
   
@@ -499,7 +538,7 @@ ul {
           left: 0;
 
           svg {
-            fill: black;
+            fill: @black;
           }
         }
   

@@ -1,4 +1,6 @@
-/*! normalize.css v1.0.0 | MIT License | git.io/normalize */
+/************************************/
+/*************  COLORS   ************/
+/************************************/
 article,
 aside,
 details,
@@ -363,7 +365,9 @@ ul {
   width: auto;
 }
 #home-section {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100vh;
   overflow: hidden;
@@ -404,14 +408,14 @@ ul {
   display: inline-block;
   vertical-align: middle;
 }
-#home-section .link-to-services-section {
+#home-section .link-to-services-menu-section {
   right: 40px;
 }
-#home-section .link-to-services-section .link-svg {
+#home-section .link-to-services-menu-section .link-svg {
   display: inline-block;
   vertical-align: middle;
 }
-#home-section .link-to-services-section .link-text {
+#home-section .link-to-services-menu-section .link-text {
   display: inline-block;
   vertical-align: middle;
 }
@@ -464,7 +468,7 @@ ul {
   position: relative;
   display: block;
   text-align: center;
-  color: white;
+  color: #ffffff;
   letter-spacing: 4px;
 }
 #contact-section .contact-data.email {
@@ -519,7 +523,7 @@ ul {
   vertical-align: middle;
 }
 #about-section .header-section .left-part {
-  background-color: white;
+  background-color: #ffffff;
 }
 #about-section .header-section .left-part .text-wrapper {
   position: absolute;
@@ -538,7 +542,7 @@ ul {
 #about-section .header-section .left-part .text-wrapper .title {
   position: relative;
   display: block;
-  color: black;
+  color: #000000;
   font-size: 5.5rem;
 }
 #about-section .about-wrapper {
@@ -555,76 +559,103 @@ ul {
   top: 40%;
   transform: translateY(-50%);
 }
-#services-section {
+#services-menu-section {
   position: absolute;
   top: 0;
-  right: -100%;
+  left: 100%;
   width: 100%;
   height: 100vh;
   z-index: 1;
   display: none;
 }
-#services-section .link-to-home-section {
+#services-menu-section .link-to-home-section {
   left: 40px;
   z-index: 2;
 }
-#services-section .link-to-home-section .link-svg {
+#services-menu-section .link-to-home-section .link-svg {
   display: inline-block;
   vertical-align: middle;
   transform: rotate(180deg);
 }
-#services-section .link-to-home-section .link-text {
+#services-menu-section .link-to-home-section .link-text {
   display: inline-block;
   vertical-align: middle;
 }
-#services-section .header-section {
+#services-menu-section .back-to-services-menu {
+  right: 80px;
+  top: 40px;
+  z-index: 2;
+  display: none;
+}
+#services-menu-section .back-to-services-menu .link-svg {
+  display: inline-block;
+  vertical-align: middle;
+  transform: rotate(270deg);
+  fill: #000000;
+}
+#services-menu-section .back-to-services-menu .link-text {
+  display: inline-block;
+  vertical-align: middle;
+  color: #000000;
+}
+#services-menu-section .header-section {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
 }
-#services-section .header-section .right-part {
-  background-color: white;
+#services-menu-section .header-section .right-part {
+  background-color: #ffffff;
 }
-#services-section .services-list {
+#services-menu-section .services-list {
   position: absolute;
   right: 80px;
-  width: 70%;
+  width: 40%;
   box-sizing: border-box;
   z-index: 5;
 }
-#services-section .services-list .service-item {
+#services-menu-section .services-list .service-item {
   position: relative;
   display: block;
+  float: right;
+  clear: both;
   margin-bottom: 30px;
   font-size: 4rem;
   text-align: right;
   cursor: pointer;
   font-weight: 600;
   letter-spacing: 3px;
+  color: #000000;
+  transition: color 0.6s ease-out;
 }
-#services-section .services-list .service-item:last-child {
+#services-menu-section .services-list .service-item.selected {
+  color: #FF9200;
+}
+#services-menu-section .services-list .service-item:last-child {
   margin-bottom: 0px;
 }
-#services-section .service-wrapper {
+#services-menu-section .services-list .service-item:hover {
+  color: #FF9200;
+}
+#services-menu-section .service-wrapper {
   position: absolute;
   top: 100%;
   left: 0;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   padding: 100px 190px;
   box-sizing: border-box;
-  background-color: white;
+  background-color: #ffffff;
 }
-#services-section .service-wrapper .title {
+#services-menu-section .service-wrapper .title {
   position: relative;
   display: block;
   margin-bottom: 60px;
   font-size: 5.5rem;
-  color: black;
+  color: #000000;
 }
-#services-section .service-wrapper .service-paragraph {
+#services-menu-section .service-wrapper .service-paragraph {
   position: relative;
   display: block;
   width: 65%;
@@ -667,7 +698,7 @@ ul {
   left: 0;
 }
 .footer .footer-wrapper .social-network-wrapper .social-network-link.instagram svg {
-  fill: black;
+  fill: #000000;
 }
 .footer .footer-wrapper .social-network-wrapper .social-network-link.facebook {
   top: 0;

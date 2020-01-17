@@ -1,8 +1,11 @@
 const $contactSection = $("#contact-section"),
   $aboutSection = $("#about-section"),
-  $servicesSection = $("#services-section");
+  $servicesSection = $("#services-menu-section"),
+  $homeSection = $("#home-section");
 
-$('document').ready(function () {
+let insideOfAService = false;
+
+$("document").ready(function () {
   bindEvents();
   setInitialValues();
 });
@@ -16,11 +19,12 @@ function setInitialValues() {
 function bindEvents() {
   $("#home-section .link-to-contact-section").click(homeToContactSectionTransition);
   $("#home-section .link-to-about-section").click(homeToAboutSectionTransition);
-  $("#home-section .link-to-services-section").click(homeToServiceSectionTransition);
+  $("#home-section .link-to-services-menu-section").click(homeToServiceSectionTransition);
   $("#contact-section .link-to-home-section").click(contactToHomeSectionTransition);
   $("#about-section .link-to-home-section").click(aboutToHomeSectionTransition);
-  $("#services-section .link-to-home-section").click(servicesToHomeSectionTransition);
+  $("#services-menu-section .link-to-home-section").click(servicesToHomeSectionTransition);
   $(".service-item").click(showService);
+  $(".back-to-services-menu").click(leaveService);
 }
 
 function positionateElements() {
@@ -32,42 +36,56 @@ function positionateElements() {
 
 function homeToContactSectionTransition() {
   const animation = new TimelineMax();
+
   $contactSection.css("display","block");
-  animation.to($contactSection, 0, {"top":"0", ease: Power2.easeInOut});
+  animation.to($contactSection, 1, {"top":"0", ease: Power2.easeInOut}, 0)
+    .to($homeSection, 1, {"top": "-50%", ease: Power2.easeInOut}, 0);
 }
 
 function homeToAboutSectionTransition() {
   const animation = new TimelineMax();
-  enableScroll();
-  animation.to($aboutSection, 0, {"left":"0", ease: Power2.easeInOut, onComplete: function(){
-    $("body").css("height", `${$aboutSection.height()}px`);
-	}});
+
+  animation.to($aboutSection, 1, {"left":"0", ease: Power2.easeInOut}, 0)
+    .to($homeSection, 1, {"left": "50%", ease: Power2.easeInOut, onComplete: function(){
+      enableScroll();
+    }}, 0);
 }
 
 function homeToServiceSectionTransition() {
   const animation = new TimelineMax();
+
   $servicesSection.css("display","block");
-  animation.to($servicesSection, 0, {"right":"0", ease: Power2.easeInOut});
+  animation.to($servicesSection, 1, {"left":"0", ease: Power2.easeInOut}, 0)
+    .to($homeSection, 1, {"left": "-50%", ease: Power2.easeInOut}, 0);
 }
 
 function contactToHomeSectionTransition() {
   const animation = new TimelineMax();
-  animation.to($contactSection, 0, {"top":"100%", ease: Power2.easeInOut, onComplete: function(){
-    $contactSection.css("display","none");
-	}});
+
+  animation.to($contactSection, 1, {"top":"100%", ease: Power2.easeInOut}, 0)
+    .to($homeSection, 1, {"top": "0", ease: Power2.easeInOut, onComplete: function(){
+      $contactSection.css("display","none");
+    }}, 0);
 }
 
 function aboutToHomeSectionTransition() {
   const animation = new TimelineMax();
+
   disableScroll()
-  animation.to($aboutSection, 0, {"left":"-100%", ease: Power2.easeInOut});
+  animation.to($aboutSection, 1, {"left":"-100%", ease: Power2.easeInOut}, 0)
+    .to($homeSection, 1, {"left":"0", ease: Power2.easeInOut}, 0);
 }
 
 function servicesToHomeSectionTransition() {
   const animation = new TimelineMax();
-  animation.to($servicesSection, 0, {"right":"-100%", ease: Power2.easeInOut, onComplete: function() {
-    $servicesSection.css("display","none");
-  }});
+
+  animation.to($servicesSection, 1, {"left":"100%", ease: Power2.easeInOut}, 0)
+    .to($homeSection, 1, {"left":"0", ease: Power2.easeInOut, onComplete: function() {
+      $servicesSection.css("display","none");
+      $("#services-menu-section .header-section").css("top","0");
+      $(".service-wrapper").css("top","100%");
+      removeSelectedServiceClass();
+    }}, 0);
 }
 
 function enableScroll() {
@@ -78,21 +96,52 @@ function disableScroll() {
   $("body").css({"overflow-y": "hidden", "height": "100vh"});
 }
 
-function showService(){
-  const animation1 = new TimelineMax();
-  const $serviceHeader = $("#services-section .header-section");
-  const $serviceTemplate = $(".service-wrapper");
-  const $serviceItems = $(".service-item");
+function showService(event){
+  const $selectedServiceDom = $(event.target);
+  if (!$selectedServiceDom.hasClass("selected")) { //TODO: comprobación de que no haya animación ejecutandose
+    const animation = new TimelineMax(),
+      $getOutContainer = $("#services-menu-section .header-section"),
+      $getInContainer = $(".service-wrapper"),
+      $serviceItems = $(".service-item"),
+      $backLink = $("#services-menu-section .back-to-services-menu");
 
-  animation1.to($serviceTemplate, 1, {"top":"0", ease: Power2.easeInOut}, 0)
-    .to($serviceItems, 1, {"font-size":"1.6rem", ease: Power2.easeInOut}, 0)
-    .to($serviceHeader, 1, {"top": "-50%", ease: Power2.easeInOut}, 0)
-    .to($serviceItems, 1, {"margin-bottom":"20px", ease: Power2.easeInOut}, 0);
+      $(event.target).addClass("selected");
+      $backLink.css("display","block");
+
+      animation.to($getInContainer, 1, {"top":"0", ease: Power2.easeInOut}, 0);
+      if (!insideOfAService) {
+        animation.to($serviceItems, 1, {"font-size":"1.6rem", "margin-bottom":"20px", ease: Power2.easeInOut}, 0)
+        .to($backLink, 1, {opacity:1}, 0);
+      }
+      animation.to($getOutContainer, 1, {"top": "-50%", ease: Power2.easeInOut, onComplete: function () {
+        insideOfAService = true;
+        enableScroll();
+      }}, 0);
+  }
+}
+
+function leaveService() {
+  if (true) { //TODO: comprobación de que no haya animación ejecutandose
+    insideOfAService = false;
+    const animation1 = new TimelineMax();
+      $serviceHeader = $("#services-menu-section .header-section"),
+      $serviceTemplate = $(".service-wrapper"),
+      $serviceItems = $(".service-item"),
+      $backLink = $("#services-menu-section .back-to-services-menu");
   
-  const animation2 = new TimelineMax();
-  /*animation2.to($serviceTemplate, 0, {"top":"0", ease: Power2.easeInOut}, 0)
-    .to($serviceTemplate, 0, {"opacity":"0"}, 0)
-    .to($serviceTemplate, 1, {"opacity":"1", ease: Power2.easeInOut}, 0)
-    .to($serviceItems, 1, {"font-size":"1.6rem", ease: Power2.easeInOut}, 0)
-    .to($serviceItems, 1, {"margin-bottom":"20px", ease: Power2.easeInOut}, 0);*/
+    removeSelectedServiceClass();
+    disableScroll();
+  
+    animation1.to($serviceTemplate, 1, {"top":"100%", ease: Power2.easeInOut}, 0)
+      .to($serviceItems, 1, {"font-size":"4rem", ease: Power2.easeInOut}, 0)
+      .to($serviceItems, 1, {"margin-bottom":"30px", ease: Power2.easeInOut}, 0)
+      .to($backLink, .5, {"opacity":"0.001"}, 0)
+      .to($serviceHeader, 1, {"top": "0", ease: Power2.easeInOut, onComplete: function () {
+        $backLink.css("display","none");
+      }}, 0);
+  }
+}
+
+function removeSelectedServiceClass() {
+  $(".service-item.selected").removeClass("selected");
 }
