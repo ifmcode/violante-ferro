@@ -17,8 +17,8 @@ ul {
   padding: 0;
 }
 
-.invisible {
-  display: none;
+.visible {
+  display: block !important;
 }
 
 .vertical-centered {
@@ -108,11 +108,54 @@ ul {
   line-height: 2rem;
 }
 
+.splash {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: @grey;
+  z-index: 6;
+  .content-wrapper {
+    position: absolute;
+    img{
+      position: relative;
+      display: block;
+      height: 40px;
+      width: auto;
+    }
+    /*.progress-number{
+      position: relative;
+      display: block;
+      margin-top: 30px;
+      color: @orange;
+      text-align: center;
+    }*/
+    .progress-bar-container {
+      position: relative;
+      display: block;
+      margin-top: 30px;
+      width: 140px;
+      height: 5px;
+      background-color: white;
+      overflow: hidden;
+      .progress-bar {
+        position: absolute;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        background-color: @orange;
+      }
+    }
+  }
+}
+
 .logo-wrapper {
-  position: absolute;
+  position: fixed;
   top: 40px;
   left: 40px;
-  z-index: 3;
+  z-index: 5;
   cursor: pointer;
 
   img {
@@ -154,6 +197,7 @@ ul {
 
   .main-title {
     position: absolute;
+    top: 65%;
     color: @orange;
     width: 60%;
     text-align: center;
@@ -162,6 +206,7 @@ ul {
 
   .link-to-about-section {
     left: 40px;
+    top: 59%;
 
     .link-svg {
       display: inline-block;
@@ -179,8 +224,9 @@ ul {
     }
   }
   
-  .link-to-services-menu-section {
+  .link-to-services-section {
     right: 40px;
+    top: 59%;
 
     .link-svg {
       display: inline-block;
@@ -228,7 +274,7 @@ ul {
 
   .link-to-home-section {
     top: 40px;
-    z-index: 2;
+    z-index: 5;
 
     .link-svg {
       display: block;
@@ -314,7 +360,7 @@ ul {
 
   .link-to-home-section {
     right: 40px;
-    z-index: 2;
+    z-index: 5;
 
     .link-svg {
       display: inline-block;
@@ -356,25 +402,25 @@ ul {
   .about-wrapper {
     position: relative;
     width: 100%;
-    padding: 100px 0;
+    padding: 100px 13%;
     min-height: 100vh;
-    padding-left: 13%;
     box-sizing: border-box;
+    overflow: hidden;
 
     .about-paragraph {
-      position: absolute;
+      position: relative;
       width: 65%;
-      top:  40%;
-      -webkit-transform: translateY(-50%);
-      -moz-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-      -o-transform: translateY(-50%);
-      transform: translateY(-50%);
+      margin-bottom: 50px;
+    }
+
+    .photo {
+      position: relative;
+      height: 800px;
     }
   }
 }
 
-#services-menu-section {
+#services-section {
   position: absolute;
   top: 0;
   left: 100%;
@@ -385,7 +431,7 @@ ul {
 
   .link-to-home-section {
     left: 40px;
-    z-index: 2;
+    z-index: 5;
 
     .link-svg {
       display: inline-block;
@@ -404,10 +450,12 @@ ul {
   }
 
   .back-to-services-menu {
+    position: fixed;  
     right: 80px;
-    top: 40px;
-    z-index: 2;
+    top: 50px;
+    z-index: 5;
     display: none;
+    opacity: 0.001;
 
     .link-svg {
       display: inline-block;
@@ -433,6 +481,14 @@ ul {
     left: 0;
     width: 100%;
     height: 100vh;
+    .left-part {
+      overflow: hidden;
+      img {
+        width: auto;
+        height: 100%;
+      }
+    }
+
     .right-part {
       background-color: @white;
     }
@@ -481,6 +537,7 @@ ul {
     padding: 100px 190px;
     box-sizing: border-box;
     background-color: @white;
+    display: none;
 
     .title {
       position: relative;
