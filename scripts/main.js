@@ -60,24 +60,34 @@ function removeSplash() {
   }});
 }
 
+let lst = 0;
+let wHeight = window.innerHeight;
+let animating = false;
 function checkScroll() {
   $(window).scroll(function(event){
     let st = $(this).scrollTop();
-    let maxScroll;
-    let $link;
-    if (shownSection === $servicesSection && shownService) {
-      $link = $("#services-section .link-to-home-section");
-      maxScroll = 253;
-    } else if (shownSection === $aboutSection) {
-      $link = $("#about-section .link-to-home-section");
-      maxScroll = 310;
+    if (shownSection === $aboutSection && !animating) { //  && !animating
+      animating = true;
+      if (st > lst && st >= 0 && st < wHeight * 0.9){ // st < 100 && 
+        autoScroll('down'); 
+        console.log('down', st);
+      } else if (st < lst && st >= wHeight && st < wHeight * 1.1) { //  && st >= wHeight
+        console.log('top', st);
+        autoScroll('top');
+      }
     }
-    if (st > maxScroll){
-      $link.css({"position":"fixed", "top":"50px"});
-    } else {
-      $link.css({"position":"absolute", "top":"50%"});
-    }
+    lst = st;
   });
+}
+
+function autoScroll(direction) {
+  const scrollToPosition = direction === 'top' ? 0 : wHeight; 
+  TweenLite.to(window, {duration: 1, scrollTo: scrollToPosition, onComplete: function() {
+    animating = false;
+    console.log('terminado');
+  }});
+
+
 }
 
 function enableScroll() {

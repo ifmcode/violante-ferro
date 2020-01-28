@@ -281,22 +281,19 @@ ul {
 .section-link {
   position: absolute;
   cursor: pointer;
-  opacity: 0.4;
-  transition: opacity 0.3s;
 }
 .section-link .link-svg {
   position: relative;
   width: 30px;
   height: 20px;
-  fill: #FF9200;
+  fill: #000000;
 }
 .section-link .link-text {
   position: relative;
   font-size: 16px;
-  color: #FF9200;
-}
-.section-link:hover {
-  opacity: 1;
+  color: #000000;
+  text-transform: uppercase;
+  font-weight: 900;
 }
 .header-section {
   position: relative;
@@ -335,6 +332,7 @@ ul {
   height: 100vh;
   background-color: #41393E;
   z-index: 6;
+  display: none;
 }
 .splash .content-wrapper {
   position: absolute;
@@ -417,6 +415,7 @@ ul {
 #home-section .link-to-about-section {
   left: 40px;
   top: 59%;
+  padding: 5px 10px 5px 5px;
 }
 #home-section .link-to-about-section .link-svg {
   display: inline-block;
@@ -430,6 +429,7 @@ ul {
 #home-section .link-to-services-section {
   right: 40px;
   top: 59%;
+  padding: 5px 5px 5px 10px;
 }
 #home-section .link-to-services-section .link-svg {
   display: inline-block;
@@ -442,6 +442,7 @@ ul {
 #home-section .link-to-contact-section {
   bottom: 40px;
   left: 50%;
+  padding: 10px;
   transform: translateX(-50%);
 }
 #home-section .link-to-contact-section .link-svg {

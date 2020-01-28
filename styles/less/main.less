@@ -51,32 +51,29 @@ ul {
 
 .section-link {
   position: absolute;
-  padding: 5px 10px 5px 5px;
-  background-color: rgba(0,0,0,0.4);
   cursor: pointer;
 
   .link-svg {
     position: relative;
     width: 30px;
     height: 20px;
-    fill: @orange;
+    fill: @black;
   }
 
   .link-text {
     position: relative;
     font-size: 16px;
-    color: @orange;
+    color: @black;
+    text-transform: uppercase;
+    font-weight: 900;
   }
 
   .link-svg, .link-text {
-    opacity: .4;
-    transition: opacity .3s;
+    
   }
 
   &:hover {
-    .link-svg, .link-text {
-      opacity: 1;
-    }
+    
   }
 }
 
@@ -216,6 +213,7 @@ ul {
   .link-to-about-section {
     left: 40px;
     top: 59%;
+    padding: 5px 10px 5px 5px;
 
     .link-svg {
       display: inline-block;
@@ -236,6 +234,7 @@ ul {
   .link-to-services-section {
     right: 40px;
     top: 59%;
+    padding: 5px 5px 5px 10px;
 
     .link-svg {
       display: inline-block;
@@ -251,6 +250,7 @@ ul {
   .link-to-contact-section {
     bottom: 40px;
     left: 50%;
+    padding: 10px;
     -webkit-transform: translateX(-50%);
     -moz-transform: translateX(-50%);
     -ms-transform: translateX(-50%);
