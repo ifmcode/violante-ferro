@@ -16,7 +16,7 @@ function setInitialValues() {
   //window.scrollTo(0, 0);
   initializeVariables();
   positionateElements();
-  checkScroll();
+  //checkScroll();
   loadSplash();
   disableScroll();
 }
@@ -29,7 +29,7 @@ function bindEvents() {
   $("#about-section .link-to-home-section").click(aboutToHomeSectionTransition);
   $("#services-section .link-to-home-section").click(servicesToHomeSectionTransition);
   $(".service-item").click(showService);
-  $(".back-to-services-menu").click(leaveService);
+  $(".back-link").click(leaveService);
 }
 
 function initializeVariables() {
@@ -86,8 +86,6 @@ function autoScroll(direction) {
     animating = false;
     console.log('terminado');
   }});
-
-
 }
 
 function enableScroll() {
@@ -100,7 +98,7 @@ function disableScroll() {
 
 function restoreServicesSection() {
   const $serviceItems = $(".service-item"),
-    $backLink = $("#services-section .back-to-services-menu");
+    $backLink = $("#services-section .back-link");
     
   removeSelectedServiceClass();
   $servicesSection.css("display","none");
@@ -183,7 +181,7 @@ function showService(event){
       $getInContainer = $(`#${serviceIdSelected}`),
       $serviceList = $(".services-list"),
       $serviceItems = $(".service-item"),
-      $backLink = $("#services-section .back-to-services-menu");
+      $backLink = $("#services-section .back-link");
 
       removeSelectedServiceClass();
       $(event.target).addClass("selected");
@@ -216,9 +214,10 @@ function leaveService() {
       $getInContainer = $("#services-section .header-section"),
       $getOutContainer = $(`#${shownService}.service-wrapper`),
       $serviceItems = $(".service-item"),
-      $backLink = $("#services-section .back-to-services-menu");
+      $backLink = $("#services-section .back-link");
   
     disableScroll();
+    removeSelectedServiceClass();
   
     animation1.to($getOutContainer, 1, {"top":"100%", ease: Power2.easeInOut}, 0)
       .to($serviceItems, 1, {"font-size":"4rem", ease: Power2.easeInOut}, 0)
@@ -227,7 +226,6 @@ function leaveService() {
       .to($getInContainer, 1, {"top": "0", ease: Power2.easeInOut, onComplete: function () {
         shownService = null;
         $getOutContainer.removeClass("visible");
-        removeSelectedServiceClass();
         $backLink.css("display","none");
       }}, 0);
   }

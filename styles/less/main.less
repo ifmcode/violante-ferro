@@ -21,6 +21,10 @@ ul {
   display: block !important;
 }
 
+.clear-both {
+  clear: both;
+}
+
 .vertical-centered {
   top: 50%;
   -webkit-transform: translateY(-50%);
@@ -66,14 +70,33 @@ ul {
     color: @black;
     text-transform: uppercase;
     font-weight: 900;
-  }
-
-  .link-svg, .link-text {
-    
+    transition: color .3s ease-out;
   }
 
   &:hover {
-    
+    .link-text {
+      color: @orange;
+    }
+  }
+}
+
+.back-link {
+  position: fixed;  
+  right: 80px;
+  top: 50px;
+  z-index: 5;
+  display: none;
+  opacity: 0.001;
+
+  .link-text {
+    display: inline-block;
+    vertical-align: middle;
+    color: @black;
+    transition: color .3s ease-out;
+
+    &:hover {
+      color: @orange;
+    }
   }
 }
 
@@ -212,7 +235,7 @@ ul {
 
   .link-to-about-section {
     left: 40px;
-    top: 59%;
+    top: 65%;
     padding: 5px 10px 5px 5px;
 
     .link-svg {
@@ -233,7 +256,7 @@ ul {
   
   .link-to-services-section {
     right: 40px;
-    top: 59%;
+    top: 65%;
     padding: 5px 5px 5px 10px;
 
     .link-svg {
@@ -294,10 +317,12 @@ ul {
       -ms-transform: rotate(-90deg);
       -o-transform: rotate(-90deg);
       transform: rotate(-90deg);
+      fill: @orange;
     }
 
     .link-text {
       display: block;
+      color: @orange;
     }
   }
   
@@ -369,6 +394,7 @@ ul {
 
   .link-to-home-section {
     right: 40px;
+    top: 50%;
     z-index: 5;
 
     .link-svg {
@@ -402,7 +428,7 @@ ul {
       .title {
         position: relative;
         display: block;
-        color: @black;
+        color: @grey;
         font-size: 5.5rem;
       }
     }
@@ -411,20 +437,48 @@ ul {
   .about-wrapper {
     position: relative;
     width: 100%;
-    padding: 100px 13%;
+    padding: 200px 10% 100px 10%;
     min-height: 100vh;
     box-sizing: border-box;
     overflow: hidden;
 
-    .about-paragraph {
+    .section {
       position: relative;
-      width: 65%;
-      margin-bottom: 50px;
+      float: left;
+      margin-bottom: 200px;
+
+      .about-section-paragraph {
+        padding-left: 40px;
+        padding-top: 54px;
+        width: 50%;
+        float: left;
+        box-sizing: border-box;
+        text-align: right;
+      }
+      
+      .photo {
+        position: relative;
+        height: auto;
+        width: 50%;
+        float: left;
+      }
     }
 
-    .photo {
+    .about-paragraph-width {
       position: relative;
-      height: 800px;
+      width: 80%;
+      float: left;
+      margin: 0 10%;
+      box-sizing: border-box;
+      text-align: center;
+      margin-bottom: 200px;
+    }
+
+    .photo-width {
+      position: relative;
+      height: auto;
+      width: 100%;
+      margin-bottom: 100px;
     }
   }
 }
@@ -439,6 +493,7 @@ ul {
   display: none;
 
   .link-to-home-section {
+    top: 50%;
     left: 40px;
     z-index: 5;
 
@@ -455,32 +510,6 @@ ul {
     .link-text {
       display: inline-block;
       vertical-align: middle;
-    }
-  }
-
-  .back-to-services-menu {
-    position: fixed;  
-    right: 80px;
-    top: 50px;
-    z-index: 5;
-    display: none;
-    opacity: 0.001;
-
-    .link-svg {
-      display: inline-block;
-      vertical-align: middle;
-      -webkit-transform: rotate(270deg);
-      -moz-transform: rotate(270deg);
-      -ms-transform: rotate(270deg);
-      -o-transform: rotate(270deg);
-      transform: rotate(270deg);
-      fill: @black;
-    }
-
-    .link-text {
-      display: inline-block;
-      vertical-align: middle;
-      color: @black;
     }
   }
 
@@ -543,10 +572,20 @@ ul {
     left: 0;
     width: 100%;
     min-height: 100vh;
-    padding: 100px 190px;
+    padding: 200px 300px 200px 200px;
     box-sizing: border-box;
     background-color: @white;
     display: none;
+
+    &#serviceB {
+      video {
+        margin-bottom: 200px;
+      }
+
+      .title {
+        margin-bottom: 100px;
+      }
+    }
 
     .title {
       position: relative;
@@ -561,6 +600,12 @@ ul {
       display: block;
       width: 65%;
     }
+
+    .wide-video {
+      position: relative;
+      width: 100%;
+      height: auto;
+    }
   }
 }
 
@@ -570,6 +615,15 @@ ul {
   height: 100px;
   bottom: 0;
   left: 0;
+
+  &, * {
+    -webkit-touch-callout: auto;
+    -webkit-user-select: auto;
+    -khtml-user-select: auto;
+    -moz-user-select: auto;
+    -ms-user-select: auto;
+    user-select: auto;
+  }
 
   .footer-wrapper{
     position: absolute;
