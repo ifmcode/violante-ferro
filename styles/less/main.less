@@ -80,6 +80,38 @@ ul {
   }
 }
 
+.social-network-wrapper {
+  position: relative;
+  display: block;
+  width: 100px;
+  height: 30px;
+  margin: 0 auto;
+  margin-top: 50px;
+
+  .social-network-link {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+
+    svg {
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      transition: fill 1s ease-out;
+    }
+
+    &.facebook {
+      top: 0;
+      left: 0;
+    }
+
+    &.instagram {
+      top: 0;
+      right: 0;
+    }
+  }
+}
+
 .back-link {
   position: fixed;  
   right: 80px;
@@ -88,11 +120,24 @@ ul {
   display: none;
   opacity: 0.001;
 
+  .social-network-wrapper {
+    margin-top: 0;
+    display: inline-block;
+    vertical-align: middle;
+    width: 70px;
+    margin-right: 10px;
+  }
+
   .link-text {
+    position: relative;
     display: inline-block;
     vertical-align: middle;
     color: @black;
+    font-size: 16px;
     transition: color .3s ease-out;
+    text-transform: uppercase;
+    font-weight: 900;
+    cursor: pointer;
 
     &:hover {
       color: @orange;
@@ -135,51 +180,6 @@ ul {
   line-height: 2rem;
 }
 
-.splash {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background-color: @grey;
-  z-index: 6;
-  display: none;
-
-  .content-wrapper {
-    position: absolute;
-    img{
-      position: relative;
-      display: block;
-      height: 40px;
-      width: auto;
-    }
-    /*.progress-number{
-      position: relative;
-      display: block;
-      margin-top: 30px;
-      color: @orange;
-      text-align: center;
-    }*/
-    .progress-bar-container {
-      position: relative;
-      display: block;
-      margin-top: 30px;
-      width: 140px;
-      height: 5px;
-      background-color: white;
-      overflow: hidden;
-      .progress-bar {
-        position: absolute;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        background-color: @orange;
-      }
-    }
-  }
-}
-
 .logo-wrapper {
   position: fixed;
   top: 40px;
@@ -189,7 +189,7 @@ ul {
 
   img {
     position: relative;
-    height: 40px;
+    height: 100px;
     width: auto;
   }
 }
@@ -210,17 +210,10 @@ ul {
     overflow: hidden;
     img {
       position: absolute;
-      top: 50%;
-      left: 0;
       width: 100%;
       height: auto;
       min-width: 100%;
-      min-height: 100%;
-      -webkit-transform: translateY(-50%);
-      -moz-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-      -o-transform: translateY(-50%);
-      transform: translateY(-50%); 
+      min-height: 100%; 
     }
   }
 
@@ -233,9 +226,32 @@ ul {
     font-size: 8rem;
   }
 
+  .section-link {
+    background-color: rgba(255,255,255,0.3);
+    .link-text {
+      //text-shadow: -1px 0 @grey, 0 1px @grey, 1px 0 @grey, 0 -1px @grey;
+      color: @black;
+    }
+
+    .link-svg {
+      fill: @black;
+    }
+
+    &:hover {
+      .link-text {
+        color: @orange;
+      }
+
+      /*.link-svg {
+        fill: @orange;
+      }*/
+    }
+  }
+
+
   .link-to-about-section {
     left: 40px;
-    top: 65%;
+    top: 50%;
     padding: 5px 10px 5px 5px;
 
     .link-svg {
@@ -256,7 +272,7 @@ ul {
   
   .link-to-services-section {
     right: 40px;
-    top: 65%;
+    top: 50%;
     padding: 5px 5px 5px 10px;
 
     .link-svg {
@@ -300,7 +316,7 @@ ul {
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  background-color: #232020;
+  background-color: @grey;
   z-index: 1;
   display: none;
 
@@ -352,37 +368,6 @@ ul {
       margin-top: 20px;
     }
   }
-
-  .social-network-wrapper {
-    position: relative;
-    display: block;
-    width: 100px;
-    height: 30px;
-    margin: 0 auto;
-    margin-top: 50px;
-
-    .social-network-link {
-      position: absolute;
-      width: 30px;
-      height: 30px;
-      cursor: pointer;
-
-      svg {
-        width: 30px;
-        height: 30px;
-      }
-
-      &.facebook {
-        top: 0;
-        left: 0;
-      }
-
-      &.instagram {
-        top: 0;
-        right: 0;
-      }
-    }
-  }
 }
 
 #about-section {
@@ -391,6 +376,7 @@ ul {
   left: -100%;
   width: 100%;
   z-index: 1;
+  background-color: @white;
 
   .link-to-home-section {
     right: 40px;
@@ -535,7 +521,7 @@ ul {
   .services-list {
     position: absolute;
     right: 80px;
-    width: 40%;
+    width: 400px;
     box-sizing: border-box;
     z-index: 5;
     .service-item {
@@ -557,7 +543,7 @@ ul {
       }
 
       &:last-child {
-        margin-bottom: 0px;
+        margin-bottom: 0px !important;
       }
 
       &:hover {
@@ -577,13 +563,85 @@ ul {
     background-color: @white;
     display: none;
 
-    &#serviceB {
-      video {
+    &#service-a {
+      background-color: #D6D6D6;
+    }
+
+    &#service-b {
+      .main-video {
         margin-bottom: 200px;
+        position: relative;
+        width: 100%;
+        height: auto;
       }
 
       .title {
         margin-bottom: 100px;
+      }
+
+      .paragraph {
+        position: relative;
+        width: 100%;
+        float: left;
+        text-align: center;
+        margin-bottom: 100px;
+      }
+
+      .slider-wrapper {
+        position: relative;
+        display: block;
+        width: 85%;
+        height: 550px;
+        margin: 0 auto;
+        clear: both;
+        
+        .video-wrapper {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          background-color: @black;
+          
+          video {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            z-index: 1;
+            &.active {
+              opacity: 1;
+              z-index: 2;
+            }
+          }
+        }
+
+        .slider-arrow {
+          position: absolute;
+          width: 40px;
+          height: 40px;
+          cursor: pointer;
+          fill: @black;
+          transition: fill .3s ease-out;
+
+          &.left {
+            left: -55px;
+            -webkit-transform: rotate(180deg);
+            -moz-transform: rotate(180deg);
+            -ms-transform: rotate(180deg);
+            -o-transform: rotate(180deg);
+            transform: rotate(180deg);
+          }
+
+          &.right {
+            right: -55px;
+          }
+
+          &:hover {
+            fill: @orange;
+          }
+        }
       }
     }
 
@@ -600,11 +658,54 @@ ul {
       display: block;
       width: 65%;
     }
+  }
+}
 
-    .wide-video {
+.splash {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: @white;
+  z-index: 6;
+
+  .content-wrapper {
+    position: absolute;
+    img{
       position: relative;
-      width: 100%;
-      height: auto;
+      display: block;
+      height: 160px;
+      width: auto;
+      margin: 0 auto;
+    }
+
+    .progress-number{
+      position: relative;
+      display: block;
+      margin-top: 60px;
+      color: @orange;
+      text-align: center;
+    }
+
+    .progress-bar-container {
+      position: relative;
+      display: block;
+      width: 200px;
+      height: 2px;
+      margin: 0 auto;
+      margin-top: 60px;
+      background-color: @grey;
+      overflow: hidden;
+
+      .progress-bar {
+        position: absolute;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        background-color: @orange;
+      }
     }
   }
 }
@@ -641,35 +742,103 @@ ul {
       width: 100px;
       height: 30px;
       margin: 0 30px;
-  
-      .social-network-link {
-        position: absolute;
-        width: 30px;
-        height: 30px;
-        cursor: pointer;
-  
-        svg {
-          width: 30px;
-          height: 30px;
-        }
-  
-        &.instagram {
-          top: 0;
-          left: 0;
-
-          svg {
-            fill: @black;
-          }
-        }
-  
-        &.facebook {
-          top: 0;
-          right: 0;
-        }
-      }
     }
   }
 
 }
+
+.lds-ellipsis {
+  position: relative;
+  display: block;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+}
+.lds-ellipsis div {
+  position: absolute;
+  top: 33px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: @orange;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.lds-ellipsis div:nth-child(1) {
+  left: 8px;
+  animation: lds-ellipsis1 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(2) {
+  left: 8px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(3) {
+  left: 32px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(4) {
+  left: 56px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(24px, 0);
+  }
+}
+
+
+.lds-ripple {
+  position: relative;
+  display: block;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+  margin-top: 60px;
+}
+.lds-ripple div {
+  position: absolute;
+  border: 4px solid #fed;
+  opacity: 1;
+  border-radius: 50%;
+  animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+.lds-ripple div:nth-child(2) {
+  animation-delay: -0.5s;
+}
+@keyframes lds-ripple {
+  0% {
+    top: 36px;
+    left: 36px;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    top: 0px;
+    left: 0px;
+    width: 72px;
+    height: 72px;
+    opacity: 0;
+  }
+}
+
 
 
