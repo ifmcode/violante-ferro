@@ -284,6 +284,7 @@ ul {
 .section-link {
   position: absolute;
   cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.3);
 }
 .section-link .link-svg {
   position: relative;
@@ -298,6 +299,18 @@ ul {
   text-transform: uppercase;
   font-weight: 900;
   transition: color 0.3s ease-out;
+}
+.section-link.left-link {
+  padding: 15px 15px 15px 40px;
+  left: 0;
+}
+.section-link.right-link {
+  right: 0;
+  padding: 15px 40px 15px 15px;
+}
+.section-link.bottom-link {
+  bottom: 0;
+  padding: 15px 15px 40px 15px;
 }
 .section-link:hover .link-text {
   color: #FF9200;
@@ -396,7 +409,7 @@ ul {
 }
 .logo-wrapper img {
   position: relative;
-  height: 100px;
+  height: 60px;
   width: auto;
 }
 #home-section {
@@ -429,27 +442,8 @@ ul {
   text-align: center;
   font-size: 8rem;
 }
-#home-section .section-link {
-  background-color: rgba(255, 255, 255, 0.3);
-}
-#home-section .section-link .link-text {
-  color: #000000;
-}
-#home-section .section-link .link-svg {
-  fill: #000000;
-}
-#home-section .section-link:hover {
-  /*.link-svg {
-        fill: @orange;
-      }*/
-}
-#home-section .section-link:hover .link-text {
-  color: #FF9200;
-}
 #home-section .link-to-about-section {
-  left: 40px;
   top: 50%;
-  padding: 5px 10px 5px 5px;
 }
 #home-section .link-to-about-section .link-svg {
   display: inline-block;
@@ -461,9 +455,7 @@ ul {
   vertical-align: middle;
 }
 #home-section .link-to-services-section {
-  right: 40px;
   top: 50%;
-  padding: 5px 5px 5px 10px;
 }
 #home-section .link-to-services-section .link-svg {
   display: inline-block;
@@ -474,9 +466,7 @@ ul {
   vertical-align: middle;
 }
 #home-section .link-to-contact-section {
-  bottom: 40px;
   left: 50%;
-  padding: 10px;
   transform: translateX(-50%);
 }
 #home-section .link-to-contact-section .link-svg {
@@ -543,7 +533,6 @@ ul {
   background-color: #ffffff;
 }
 #about-section .link-to-home-section {
-  right: 40px;
   top: 50%;
   z-index: 5;
 }
@@ -631,7 +620,6 @@ ul {
 }
 #services-section .link-to-home-section {
   top: 50%;
-  left: 40px;
   z-index: 5;
 }
 #services-section .link-to-home-section .link-svg {

@@ -137,7 +137,7 @@ function scrollToTop() {
   generalAnimation.to( $("html, body"), 1, {scrollTop: 0, ease:Power2.easeInOut})
     .to($linkToHome, .3, {"opacity":"0.001", onComplete:function(){
       firstScrollDoneOnAboutSection = false;
-      $linkToHome.css({"position":"absolute","top":"50%", "right":"40px"});
+      $linkToHome.css({"position":"absolute","top":"50%", "right":"0"});
       animation.to($linkToHome, .3, {"opacity":"1"}, .8);
     }}, 0);
 }
@@ -149,7 +149,7 @@ function executeFirstScroll(){
   generalAnimation.to( $("html, body"), 1, {scrollTop: window.innerHeight, ease:Power2.easeInOut}, 0)
     .to($linkToHome, .3, {"opacity":"0.001", onComplete:function(){
       firstScrollDoneOnAboutSection = true;
-      $linkToHome.css({"position":"fixed","top":"110px", "right":"75px"});
+      $linkToHome.css({"position":"fixed","top":"110px", "right":"35px"});
       showSocialAndBackLink();
       animation.to($linkToHome, .3, {"opacity":"1", onComplete: function() {
         enableScroll();
@@ -175,7 +175,7 @@ function restoreAboutSection() {
     $linkToHome = $("#about-section .link-to-home-section");
   firstScrollDoneOnAboutSection = false;
   animation.to($linkToHome, .3, {"opacity":"0.001", onComplete:function(){
-    $linkToHome.css({"position":"absolute","top":"50%", "right":"40px", "opacity":"1"});
+    $linkToHome.css({"position":"absolute","top":"50%", "right":"0", "opacity":"1"});
   }}, 0);
 }
 
@@ -303,7 +303,7 @@ function showService(event){
         }
 
         if (!shownService) {
-          $linkToHome.css({"position":"fixed", "top":"110px"});
+          $linkToHome.css({"position":"fixed", "top":"130px"});
           animation.to($linkToHome, .3, {"opacity":"1"});
         }
         $(window).scrollTop(0);

@@ -56,6 +56,7 @@ ul {
 .section-link {
   position: absolute;
   cursor: pointer;
+  background-color: rgba(255,255,255,0.3);
 
   .link-svg {
     position: relative;
@@ -71,6 +72,21 @@ ul {
     text-transform: uppercase;
     font-weight: 900;
     transition: color .3s ease-out;
+  }
+
+  &.left-link {
+    padding: 15px 15px 15px 40px;
+    left: 0;
+  }
+
+  &.right-link {
+    right: 0;
+    padding: 15px 40px 15px 15px;
+  }
+
+  &.bottom-link {
+    bottom: 0;
+    padding: 15px 15px 40px 15px;
   }
 
   &:hover {
@@ -189,7 +205,7 @@ ul {
 
   img {
     position: relative;
-    height: 100px;
+    height: 60px;
     width: auto;
   }
 }
@@ -226,33 +242,9 @@ ul {
     font-size: 8rem;
   }
 
-  .section-link {
-    background-color: rgba(255,255,255,0.3);
-    .link-text {
-      //text-shadow: -1px 0 @grey, 0 1px @grey, 1px 0 @grey, 0 -1px @grey;
-      color: @black;
-    }
-
-    .link-svg {
-      fill: @black;
-    }
-
-    &:hover {
-      .link-text {
-        color: @orange;
-      }
-
-      /*.link-svg {
-        fill: @orange;
-      }*/
-    }
-  }
-
 
   .link-to-about-section {
-    left: 40px;
     top: 50%;
-    padding: 5px 10px 5px 5px;
 
     .link-svg {
       display: inline-block;
@@ -271,9 +263,7 @@ ul {
   }
   
   .link-to-services-section {
-    right: 40px;
     top: 50%;
-    padding: 5px 5px 5px 10px;
 
     .link-svg {
       display: inline-block;
@@ -287,9 +277,7 @@ ul {
   }
 
   .link-to-contact-section {
-    bottom: 40px;
     left: 50%;
-    padding: 10px;
     -webkit-transform: translateX(-50%);
     -moz-transform: translateX(-50%);
     -ms-transform: translateX(-50%);
@@ -379,7 +367,6 @@ ul {
   background-color: @white;
 
   .link-to-home-section {
-    right: 40px;
     top: 50%;
     z-index: 5;
 
@@ -480,7 +467,6 @@ ul {
 
   .link-to-home-section {
     top: 50%;
-    left: 40px;
     z-index: 5;
 
     .link-svg {
