@@ -12,6 +12,10 @@ p, h1, h2, h3, span, li {
   font-family: 'Ubuntu', sans-serif;
 }
 
+.stroke {
+  font-weight: bold;
+}
+
 ul {
   margin: 0;
   padding: 0;
@@ -56,7 +60,7 @@ ul {
 .section-link {
   position: absolute;
   cursor: pointer;
-  background-color: rgba(255,255,255,0.3);
+  // background-color: rgba(255,255,255,0.3);
 
   .link-svg {
     position: relative;
@@ -86,7 +90,7 @@ ul {
 
   &.bottom-link {
     bottom: 0;
-    padding: 15px 15px 40px 15px;
+    padding: 15px 15px 15px 15px;
   }
 
   &:hover {
@@ -229,7 +233,8 @@ ul {
       width: 100%;
       height: auto;
       min-width: 100%;
-      min-height: 100%; 
+      min-height: 100%;
+      top: 42%;
     }
   }
 
@@ -426,7 +431,7 @@ ul {
         width: 50%;
         float: left;
         box-sizing: border-box;
-        text-align: right;
+        text-align: justify;
       }
       
       .photo {
@@ -439,12 +444,15 @@ ul {
 
     .about-paragraph-width {
       position: relative;
-      width: 80%;
+      width: 100%;
       float: left;
-      margin: 0 10%;
       box-sizing: border-box;
-      text-align: center;
-      margin-bottom: 200px;
+      text-align: justify;
+      margin-bottom: 40px;
+
+      &.big-margin-botton {
+        margin-bottom: 200px;
+      }
     }
 
     .photo-width {
@@ -485,7 +493,7 @@ ul {
     }
   }
 
-  .header-section   {
+  .header-section {
     position: absolute;
     top: 0;
     left: 0;
@@ -544,21 +552,37 @@ ul {
     left: 0;
     width: 100%;
     min-height: 100vh;
-    padding: 200px 300px 200px 200px;
+    padding: 100px 300px 200px 200px;
     box-sizing: border-box;
     background-color: @white;
     display: none;
 
     &#service-a {
       background-color: #D6D6D6;
+      .service-paragraph {
+        width: 85%;
+        text-align: justify;
+      }
+
+      .offered-services {
+        position: relative;
+        text-decoration: none;
+        width: 80%;
+        margin: 30px 0 60px 0;
+        li {
+          list-style-type: circle;
+          margin-left: 60px;
+          margin-bottom: 10px;
+        }
+      }
     }
 
     &#service-b {
       .main-video {
-        margin-bottom: 200px;
         position: relative;
         width: 100%;
         height: auto;
+        margin-bottom: 160px;
       }
 
       .title {
@@ -577,7 +601,7 @@ ul {
         position: relative;
         display: block;
         width: 85%;
-        height: 550px;
+        height: 470px;
         margin: 0 auto;
         clear: both;
         
@@ -702,6 +726,7 @@ ul {
   height: 100px;
   bottom: 0;
   left: 0;
+  background-color: rgba(0,0,0,0.1);
 
   &, * {
     -webkit-touch-callout: auto;

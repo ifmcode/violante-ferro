@@ -81,7 +81,7 @@ function loadSplash() {
 function splashAnimation1() {
   generalAnimation = new TimelineMax();
   const progressBar = $(".splash .progress-bar");
-  generalAnimation.to(progressBar, 2, {"left":"0", ease: Power2.easeOut, onComplete: function() {
+  generalAnimation.to(progressBar, .4, {"left":"0", ease: Power2.easeOut, onComplete: function() {
     removeSplash();
   }}, 0);
 }
