@@ -133,11 +133,9 @@ function scrollToTop() {
   const animation = new TimelineMax();
   const $linkToHome = $("#about-section .link-to-home-section");
   hideSocialAndBackLink();
-  disableScroll();
   generalAnimation.to( $("html, body"), 1, {scrollTop: 0, ease:Power2.easeInOut})
     .to($linkToHome, .3, {"opacity":"0.001", onComplete:function(){
       firstScrollDoneOnAboutSection = false;
-      $linkToHome.css({"position":"absolute","top":"50%", "right":"0"});
       animation.to($linkToHome, .3, {"opacity":"1"}, .8);
     }}, 0);
 }
@@ -149,11 +147,8 @@ function executeFirstScroll(){
   generalAnimation.to( $("html, body"), 1, {scrollTop: window.innerHeight, ease:Power2.easeInOut}, 0)
     .to($linkToHome, .3, {"opacity":"0.001", onComplete:function(){
       firstScrollDoneOnAboutSection = true;
-      $linkToHome.css({"position":"fixed","top":"110px", "right":"35px"});
       showSocialAndBackLink();
-      animation.to($linkToHome, .3, {"opacity":"1", onComplete: function() {
-        enableScroll();
-      }}, .8);
+      animation.to($linkToHome, .3, {"opacity":"1"}, .8);
 		}}, 0);
 }
 
@@ -196,6 +191,7 @@ function homeToAboutSectionTransition() {
     generalAnimation.to($aboutSection, 1, {"left":"0", ease: Power2.easeInOut}, 0)
       .to($homeSection, 1, {"left": "50%", ease: Power2.easeInOut, onComplete: function(){
         shownSection = $aboutSection;
+        enableScroll();
       }}, 0);
   }
 }
@@ -303,8 +299,8 @@ function showService(event){
         }
 
         if (!shownService) {
-          $linkToHome.css({"position":"fixed", "top":"130px"});
-          animation.to($linkToHome, .3, {"opacity":"1"});
+          //$linkToHome.css({"position":"fixed", "top":"130px"});
+          //animation.to($linkToHome, .3, {"opacity":"1"});
         }
         $(window).scrollTop(0);
         $getInContainer.css("top", "0");
@@ -333,7 +329,7 @@ function leaveService() {
     hideSocialAndBackLink();
     generalAnimation.to($getOutContainer, 1, {"top":`${bottomOfScreen}px`, ease: Power2.easeInOut}, 0)
       .to($serviceItems, 1, {"font-size":"4rem", ease: Power2.easeInOut}, 0)
-      .to($linkToHome, .3, {"opacity":"0.001"}, 0)
+      //.to($linkToHome, .3, {"opacity":"0.001"}, 0)
       .to($serviceList, 1, {"width":"400px"}, 0)
       .to($serviceItems, 1, {"margin-bottom":"30px", ease: Power2.easeInOut}, 0)
       .to($getInContainer, 1, {"top": `${topOfScreen}px`, ease: Power2.easeInOut, onComplete: function () {
@@ -341,7 +337,7 @@ function leaveService() {
         $getOutContainer.removeClass("visible");
         $getInContainer.css("top", "0");
         $getOutContainer.css("top","100%");
-        $linkToHome.css({"top":"50%","position":"absolute"});
+        // $linkToHome.css({"top":"50%","position":"absolute"});
         animation.to($linkToHome, .3, {"opacity":"1"});
       }}, 0);
   }

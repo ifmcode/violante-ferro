@@ -134,7 +134,7 @@ ul {
 
 .back-link {
   position: fixed;  
-  right: 80px;
+  right: 70px;
   top: 50px;
   z-index: 5;
   display: none;
@@ -142,23 +142,21 @@ ul {
 
   .social-network-wrapper {
     margin-top: 0;
-    display: inline-block;
-    vertical-align: middle;
+    display: block;
     width: 70px;
-    margin-right: 10px;
   }
 
   .link-text {
     position: relative;
-    display: inline-block;
-    vertical-align: middle;
+    display: block;
     color: @black;
     font-size: 16px;
     transition: color .3s ease-out;
     text-transform: uppercase;
     font-weight: 900;
     cursor: pointer;
-
+    text-align: right;
+    margin-bottom: 15px;
     &:hover {
       color: @orange;
     }
@@ -637,11 +635,6 @@ ul {
 
           &.left {
             left: -55px;
-            -webkit-transform: rotate(180deg);
-            -moz-transform: rotate(180deg);
-            -ms-transform: rotate(180deg);
-            -o-transform: rotate(180deg);
-            transform: rotate(180deg);
           }
 
           &.right {
