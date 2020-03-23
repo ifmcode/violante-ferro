@@ -232,7 +232,7 @@ ul {
       height: auto;
       min-width: 100%;
       min-height: 100%;
-      top: 42%;
+      top: 50%;
     }
   }
 
@@ -357,6 +357,12 @@ ul {
 
     &.phone-number {
       margin-top: 20px;
+    }
+  }
+
+  .social-network-wrapper {
+    svg {
+      fill: @white;
     }
   }
 }
@@ -573,6 +579,21 @@ ul {
           margin-bottom: 10px;
         }
       }
+
+      .comunnication-wrapper {
+        position: relative;
+        width: 100%;
+        height: auto;
+        margin-top: 20px;
+
+        a .whatsapp-icon {
+          position: relative;
+          text-align: center;
+          width: 30px;
+          height: 30px;
+        }
+
+      }
     }
 
     &#service-b {
@@ -758,6 +779,7 @@ ul {
   height: 80px;
   margin: 0 auto;
 }
+
 .lds-ellipsis div {
   position: absolute;
   top: 33px;
@@ -767,22 +789,27 @@ ul {
   background: @orange;
   animation-timing-function: cubic-bezier(0, 1, 1, 0);
 }
+
 .lds-ellipsis div:nth-child(1) {
   left: 8px;
   animation: lds-ellipsis1 0.6s infinite;
 }
+
 .lds-ellipsis div:nth-child(2) {
   left: 8px;
   animation: lds-ellipsis2 0.6s infinite;
 }
+
 .lds-ellipsis div:nth-child(3) {
   left: 32px;
   animation: lds-ellipsis2 0.6s infinite;
 }
+
 .lds-ellipsis div:nth-child(4) {
   left: 56px;
   animation: lds-ellipsis3 0.6s infinite;
 }
+
 @keyframes lds-ellipsis1 {
   0% {
     transform: scale(0);
@@ -791,6 +818,7 @@ ul {
     transform: scale(1);
   }
 }
+
 @keyframes lds-ellipsis3 {
   0% {
     transform: scale(1);
@@ -799,6 +827,7 @@ ul {
     transform: scale(0);
   }
 }
+
 @keyframes lds-ellipsis2 {
   0% {
     transform: translate(0, 0);
@@ -807,7 +836,6 @@ ul {
     transform: translate(24px, 0);
   }
 }
-
 
 .lds-ripple {
   position: relative;

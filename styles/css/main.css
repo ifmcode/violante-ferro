@@ -434,7 +434,7 @@ ul {
   height: auto;
   min-width: 100%;
   min-height: 100%;
-  top: 42%;
+  top: 50%;
 }
 #home-section .main-title {
   position: absolute;
@@ -525,6 +525,9 @@ ul {
 }
 #contact-section .contact-data.phone-number {
   margin-top: 20px;
+}
+#contact-section .social-network-wrapper svg {
+  fill: #ffffff;
 }
 #about-section {
   position: absolute;
@@ -710,6 +713,18 @@ ul {
   list-style-type: circle;
   margin-left: 60px;
   margin-bottom: 10px;
+}
+#services-section .service-wrapper#service-a .comunnication-wrapper {
+  position: relative;
+  width: 100%;
+  height: auto;
+  margin-top: 20px;
+}
+#services-section .service-wrapper#service-a .comunnication-wrapper a .whatsapp-icon {
+  position: relative;
+  text-align: center;
+  width: 30px;
+  height: 30px;
 }
 #services-section .service-wrapper#service-b .main-video {
   position: relative;
