@@ -315,7 +315,7 @@ ul {
   padding: 15px 15px 15px 15px;
 }
 .section-link:hover .link-text {
-  color: #FF9200;
+  color: #808080;
 }
 .social-network-wrapper {
   position: relative;
@@ -370,7 +370,7 @@ ul {
   margin-bottom: 15px;
 }
 .back-link .link-text:hover {
-  color: #FF9200;
+  color: #808080;
 }
 .header-section {
   position: relative;
@@ -396,6 +396,9 @@ ul {
   min-height: 100%;
   transform: translateY(-50%);
 }
+.black {
+  color: #000000;
+}
 .paragraph {
   font-size: 1.4rem;
   letter-spacing: 3px;
@@ -413,6 +416,14 @@ ul {
   height: 60px;
   width: auto;
 }
+.logo-wrapper.type2 {
+  top: 13%;
+  left: 7%;
+}
+.logo-wrapper.type2 img {
+  height: 152px;
+  opacity: 0.7;
+}
 #home-section {
   position: absolute;
   top: 0;
@@ -422,30 +433,83 @@ ul {
   overflow: hidden;
   z-index: 0;
 }
+#home-section .section-link {
+  z-index: 2;
+}
+#home-section.type1 .background-image {
+  width: 70%;
+  height: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#home-section.type1 .main-title {
+  top: 56%;
+  font-size: 3rem;
+}
+#home-section.type1 .slogan {
+  display: block;
+}
 #home-section .background-image {
-  position: relative;
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  width: 54%;
+  height: 92%;
+  top: 0;
+  right: 0;
   overflow: hidden;
+  border-left: 3px solid #000000;
 }
 #home-section .background-image img {
   position: absolute;
-  width: 100%;
   height: auto;
   min-width: 100%;
   min-height: 100%;
-  top: 50%;
+  width: 133%;
+  top: -59px;
+  right: -12%;
 }
 #home-section .main-title {
   position: absolute;
-  top: 65%;
-  color: #FF9200;
-  width: 60%;
-  text-align: center;
-  font-size: 8rem;
+  width: auto;
+  top: 29%;
+  right: 59%;
+  font-size: 3rem;
+  color: #FF914C;
+  text-transform: uppercase;
+}
+#home-section .slogan-wrapper {
+  position: absolute;
+  right: 59%;
+  top: 47%;
+  width: 30%;
+  left: auto;
+  font-style: oblique;
+}
+#home-section .slogan-wrapper .slogan {
+  position: relative;
+  color: #41393E;
+  font-size: 2.2rem;
+  text-align: right;
+}
+#home-section .slogan-wrapper .slogan-author {
+  position: relative;
+  margin-top: 20px;
+  right: 10px;
+  text-align: right;
+  font-size: 1.2rem;
+}
+#home-section .decorator-square {
+  position: absolute;
+  width: 115%;
+  height: 100%;
+  transform: rotate(-18deg);
+  border: 3px #000000 solid;
+  bottom: -72%;
+  right: -35%;
+  background-color: #FF914C;
+  z-index: 2;
 }
 #home-section .link-to-about-section {
-  top: 50%;
+  top: 70%;
 }
 #home-section .link-to-about-section .link-svg {
   display: inline-block;
@@ -457,7 +521,7 @@ ul {
   vertical-align: middle;
 }
 #home-section .link-to-services-section {
-  top: 50%;
+  top: 70%;
 }
 #home-section .link-to-services-section .link-svg {
   display: inline-block;
@@ -497,17 +561,17 @@ ul {
   margin: 0 auto;
   margin-bottom: 10px;
   transform: rotate(-90deg);
-  fill: #FF9200;
+  fill: #FF914C;
 }
 #contact-section .link-to-home-section .link-text {
   display: block;
-  color: #FF9200;
+  color: #FF914C;
 }
 #contact-section .contact-paragraph {
   position: relative;
   display: block;
   width: 50%;
-  color: #FF9200;
+  color: #FF914C;
   margin: 0 auto;
   padding-top: 160px;
   text-align: justify;
@@ -562,7 +626,7 @@ ul {
 #about-section .header-section .left-part .text-wrapper .subtitle {
   position: relative;
   display: block;
-  color: #FF9200;
+  color: #FF914C;
   font-size: 1.5rem;
   margin-bottom: 20px;
 }
@@ -677,13 +741,13 @@ ul {
   transition: color 0.6s ease-out;
 }
 #services-section .services-list .service-item.selected {
-  color: #FF9200;
+  color: #FF914C;
 }
 #services-section .services-list .service-item:last-child {
   margin-bottom: 0px !important;
 }
 #services-section .services-list .service-item:hover {
-  color: #FF9200;
+  color: #808080;
 }
 #services-section .service-wrapper {
   position: absolute;
@@ -785,7 +849,7 @@ ul {
   right: -55px;
 }
 #services-section .service-wrapper#service-b .slider-wrapper .slider-arrow:hover {
-  fill: #FF9200;
+  fill: #FF914C;
 }
 #services-section .service-wrapper .title {
   position: relative;
@@ -822,7 +886,7 @@ ul {
   position: relative;
   display: block;
   margin-top: 60px;
-  color: #FF9200;
+  color: #FF914C;
   text-align: center;
 }
 .splash .content-wrapper .progress-bar-container {
@@ -841,7 +905,7 @@ ul {
   width: 100%;
   height: 100%;
   top: 0;
-  background-color: #FF9200;
+  background-color: #FF914C;
 }
 .footer {
   position: absolute;
@@ -864,7 +928,7 @@ ul {
 }
 .footer .footer-wrapper .contact-data {
   position: absolute;
-  color: #FF9200;
+  color: #FF914C;
   letter-spacing: 4px;
 }
 .footer .footer-wrapper .social-network-wrapper {
@@ -886,7 +950,7 @@ ul {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #FF9200;
+  background: #FF914C;
   animation-timing-function: cubic-bezier(0, 1, 1, 0);
 }
 .lds-ellipsis div:nth-child(1) {
