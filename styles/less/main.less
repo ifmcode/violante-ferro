@@ -204,24 +204,16 @@ ul {
 
 .logo-wrapper {
   position: fixed;
-  top: 40px;
-  left: 40px;
+  top: 3vw;
+  left: 64%;
   z-index: 5;
   cursor: pointer;
 
   img {
     position: relative;
-    height: 60px;
+    height: 75px;
     width: auto;
-  }
-  
-  &.type2 {
-    top: 13%;
-    left: 7%;
-    img {
-      height: 152px;
-      opacity: 0.7;
-    }
+    opacity: 0.7;
   }
 }
 
@@ -238,142 +230,124 @@ ul {
     z-index: 2;
   }
 
-  &.type1 {
-    .background-image {
-      width: 70%;
-      height: 50%;
-      //con horizontal-centered
-      left: 50%;
-      -webkit-transform: translateX(-50%);
-      -moz-transform: translateX(-50%);
-      -ms-transform: translateX(-50%);
-      -o-transform: translateX(-50%);
-      transform: translateX(-50%);
-    }
-    .main-title {
-      top: 56%;
-      font-size: 3rem;
-    }
-
-    .slogan {
-      display: block;
-    }
-  }
-
-  .background-image {
+  .home-logo-wrapper {
     position: absolute;
-    width: 54%;
-    height: 92%;
     top: 0;
-    right: 0;
-    overflow: hidden;
-    border-left: 3px solid @black;
+    left: 0;
+    width: 40%;
+    height: 165px;
     img {
       position: absolute;
-      height: auto;
-      min-width: 100%;
-      min-height: 100%;
-      width: 133%;
-      top: -59px;
-      right: -12%;
+      left: 50px;
+      height: 75px;
+      width: auto;
+      opacity: 0.7;
+    }
+
+    .main-title {
+      position: absolute;
+      width: auto;
+      left: 165px;
+      color: @orange;
+      font-size: 2rem;
+      text-transform: uppercase;
     }
   }
 
-  .main-title {
+  .home-image-wrapper {
     position: absolute;
-    width: auto;
-    top: 29%;
-    right: 59%;
-    font-size: 3rem;
-    color: @orange;
-    text-transform: uppercase;
+    width: 65%;
+    height: 80%;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+    background-image: url('../../resources/images/home_background_image.jpg');
+    background-size: 115%;
+    background-repeat: no-repeat;
+    background-position: 0% 50%;
+    .gradient {
+      position: absolute;
+      &.horizontal {
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 60px;
+        background: linear-gradient(white, transparent);
+      }
+
+      &.vertical {
+        right: 0;
+        top: 0;
+        width: 60px;
+        height: 100%;
+        background: linear-gradient(0.25turn, white, transparent);
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .menu-wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40%;
+    height: 165px;
+    ul {
+      position: absolute;
+      right: 50px;
+      width: auto;
+      li {
+        position: relative;
+        float: left;
+        margin-right: 20px;
+        &.no-right-margin {
+          margin-right: 0;
+        }
+      }
+    }
   }
 
   .slogan-wrapper {
     position: absolute;
-    right: 59%;
-    top: 47%;
-    width: 30%;
+    right: 6%;
+    top: 40%;
+    width: 24%;
     left: auto;
     font-style: oblique;
     .slogan {
       position: relative;
       color: @grey;
-      font-size: 2.2rem;
-      text-align: right;
+      font-size: 1.3rem;
+      text-align: left;
     }
 
     .slogan-author {
       position: relative;
-      margin-top: 20px;
+      margin-top: 6px;
       right: 10px;
       text-align: right;
-      font-size: 1.2rem;
+      font-size: 0.9rem;
     }
   }
 
   .decorator-square{
     position: absolute;
-    width: 115%;
-    height: 100%;
-    transform: rotate(-18deg);
+    width: 2000px;
+    height: 300px;
     border: 3px #000000 solid;
-    bottom: -72%;
-    right: -35%;
-    background-color: @orange;
-    z-index: 2;
-  }
-
-  .link-to-about-section {
-    top: 70%;
-
-    .link-svg {
-      display: inline-block;
-      vertical-align: middle;
-      -webkit-transform: rotate(180deg);
-      -moz-transform: rotate(180deg);
-      -ms-transform: rotate(180deg);
-      -o-transform: rotate(180deg);
-      transform: rotate(180deg);
+    &.square1 {
+      transform: rotate(-13deg);
+      bottom: -213px;
+      right: -700px;
+      background-color: @orange;
+      z-index: 2;
     }
-
-    .link-text {
-      display: inline-block;
-      vertical-align: middle;
-    }
-  }
-  
-  .link-to-services-section {
-    top: 70%;
-
-    .link-svg {
-      display: inline-block;
-      vertical-align: middle;
-    }
-
-    .link-text {
-      display: inline-block;
-      vertical-align: middle;
-    }
-  }
-
-  .link-to-contact-section {
-    left: 50%;
-    -webkit-transform: translateX(-50%);
-    -moz-transform: translateX(-50%);
-    -ms-transform: translateX(-50%);
-    -o-transform: translateX(-50%);
-    transform: translateX(-50%);
-
-    .link-svg {
-      display: block;
-      margin: 0 auto;
-      margin-top: 10px;
-      -webkit-transform: rotate(90deg);
-      -moz-transform: rotate(90deg);
-      -ms-transform: rotate(90deg);
-      -o-transform: rotate(90deg);
-      transform: rotate(90deg);
+    &.square2 {
+      transform: rotate(10deg);
+      bottom: -213px;
+      left: -571px;
+      background-color: @light-grey;
+      z-index: 1;
     }
   }
 }
@@ -509,8 +483,9 @@ ul {
 
       .about-section-paragraph {
         padding-left: 40px;
+        padding-right: 40px;
         padding-top: 54px;
-        width: 50%;
+        width: 100%;
         float: left;
         box-sizing: border-box;
         text-align: justify;
