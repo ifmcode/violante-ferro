@@ -259,7 +259,7 @@ h2,
 h3,
 span,
 li {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Lato', sans-serif;
 }
 .stroke {
   font-weight: bold;
@@ -323,7 +323,7 @@ ul {
 .social-network-wrapper {
   position: relative;
   display: block;
-  width: 100px;
+  width: 110px;
   height: 30px;
   margin: 0 auto;
   margin-top: 50px;
@@ -346,6 +346,10 @@ ul {
 .social-network-wrapper .social-network-link.instagram {
   top: 0;
   right: 0;
+}
+.social-network-wrapper .social-network-link.whatsapp {
+  top: 0;
+  left: 40px;
 }
 .back-link {
   position: fixed;
@@ -437,59 +441,50 @@ ul {
   top: 0;
   left: 0;
   width: 40%;
-  height: 165px;
+  height: 90px;
 }
 #home-section .home-logo-wrapper img {
   position: absolute;
   left: 50px;
-  height: 75px;
+  height: 60px;
   width: auto;
-  opacity: 0.7;
+  opacity: 1;
 }
 #home-section .home-logo-wrapper .main-title {
   position: absolute;
   width: auto;
-  left: 165px;
+  left: 130px;
   color: #FF914C;
-  font-size: 2rem;
+  font-size: 1.6rem;
   text-transform: uppercase;
 }
 #home-section .home-image-wrapper {
   position: absolute;
-  width: 65%;
-  height: 80%;
+  width: 100%;
+  height: 100%;
   left: 0;
   bottom: 0;
   overflow: hidden;
   background-image: url('../../resources/images/home_background_image.jpg');
-  background-size: 115%;
+  background-size: 100%;
   background-repeat: no-repeat;
-  background-position: 0% 50%;
+  background-position: center;
+  z-index: -1;
 }
-#home-section .home-image-wrapper .gradient {
+#home-section .home-image-wrapper .nav-background {
   position: absolute;
-}
-#home-section .home-image-wrapper .gradient.horizontal {
   left: 0;
   top: 0;
   width: 100%;
-  height: 60px;
-  background: linear-gradient(white, transparent);
-}
-#home-section .home-image-wrapper .gradient.vertical {
-  right: 0;
-  top: 0;
-  width: 60px;
-  height: 100%;
-  background: linear-gradient(0.25turn, white, transparent);
-  transform: rotate(180deg);
+  height: 90px;
+  background: white;
 }
 #home-section .menu-wrapper {
   position: absolute;
   top: 0;
   right: 0;
   width: 40%;
-  height: 165px;
+  height: 90px;
 }
 #home-section .menu-wrapper ul {
   position: absolute;
@@ -506,9 +501,9 @@ ul {
 }
 #home-section .slogan-wrapper {
   position: absolute;
-  right: 6%;
+  right: 8%;
   top: 40%;
-  width: 24%;
+  width: 22%;
   left: auto;
   font-style: oblique;
 }
@@ -527,23 +522,19 @@ ul {
 }
 #home-section .decorator-square {
   position: absolute;
+  bottom: -240px;
+  right: -700px;
   width: 2000px;
   height: 300px;
-  border: 3px #000000 solid;
-}
-#home-section .decorator-square.square1 {
-  transform: rotate(-13deg);
-  bottom: -213px;
-  right: -700px;
+  transform: rotate(-9deg);
   background-color: #FF914C;
   z-index: 2;
 }
-#home-section .decorator-square.square2 {
-  transform: rotate(10deg);
-  bottom: -213px;
-  left: -571px;
-  background-color: #808080;
-  z-index: 1;
+#home-section .social-network-wrapper {
+  position: absolute;
+  bottom: 30px;
+  right: 50px;
+  z-index: 3;
 }
 #contact-section {
   position: absolute;
