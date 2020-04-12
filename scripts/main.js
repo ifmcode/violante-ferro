@@ -97,10 +97,8 @@ function navigate(sectionToShow) {
   sectionToShow.css('display','block');
   disableScroll();
   if (sectionToShow === homeSection) {
-    $('header').removeClass('small-height');
     doHomeAnimation(sectionToShow);
   } else {
-    $('header').addClass('small-height');
     doSectionAnimation(sectionToShow);
   }
 
@@ -116,7 +114,7 @@ function updateActiveLink(event) {
 function doSectionAnimation(sectionToShow) {
   sectionToShow.css('z-index', '2');
   shownSection.css('z-index', '1');
-  generalAnimation.to(sectionToShow, 1, {'top':'70px', ease: Power2.easeInOut}, 0)
+  generalAnimation.to(sectionToShow, 1, {'top':'0', ease: Power2.easeInOut}, 0)
   .to(shownSection, 1, {'top': '-50%', ease: Power2.easeInOut, onComplete: function () {
     if (shownSection !== homeSection) {
       shownSection.css({'display':'none', 'top':'100%'});
@@ -131,7 +129,7 @@ function doSectionAnimation(sectionToShow) {
 function doHomeAnimation(sectionToShow) {
   sectionToShow.css('z-index', '1');
   shownSection.css('z-index', '2');
-  generalAnimation.to(sectionToShow, 1, {'top':'90px', ease: Power2.easeInOut}, 0)
+  generalAnimation.to(sectionToShow, 1, {'top':'0', ease: Power2.easeInOut}, 0)
   .to(shownSection, 1, {'top': '100%', ease: Power2.easeInOut, onComplete: function () {
     shownSection.css({'display':'none', 'top':'100%'});
     shownSection = sectionToShow;
