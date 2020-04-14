@@ -463,17 +463,10 @@ section {
   height: 100vh;
   z-index: 0;
 }
-#home-section .home-image-wrapper {
+#home-section .home-image {
   position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  bottom: 0;
-  overflow: hidden;
-  background-image: url('../../resources/images/home_background_image.jpg');
-  background-size: 100%;
-  background-repeat: no-repeat;
-  background-position: center;
+  min-width: 100%;
+  min-height: 100%;
   z-index: -1;
 }
 #home-section .slogan-wrapper {
@@ -520,7 +513,7 @@ section {
   display: block;
   width: 50%;
   color: #ffffff;
-  margin: 0 auto;
+  margin: 100px auto;
   text-align: justify;
   text-align-last: center;
 }
@@ -546,13 +539,14 @@ section {
 #about-section .about-paragraph {
   position: relative;
   width: 80%;
-  text-align: left;
-  margin-bottom: 20px;
+  margin-left: 10%;
+  margin-top: 200px;
+  text-align: center;
 }
 #about-section .about-image {
   position: relative;
-  width: 45%;
-  margin: 40px 0;
+  width: 60%;
+  margin: 40px 20%;
 }
 #about-section p {
   color: white;
@@ -573,8 +567,12 @@ section {
 #services-section .service-paragraph {
   position: relative;
   width: 80%;
-  text-align: left;
+  margin-left: 10%;
+  text-align: center;
   margin-bottom: 20px;
+}
+#services-section .service-paragraph:first-child {
+  margin-top: 60px;
 }
 #services-section .service-image {
   position: relative;
