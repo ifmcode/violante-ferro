@@ -377,6 +377,36 @@ ul {
   top: 0;
   background-color: #C15437;
 }
+.cookies-and-privacy-notification {
+  position: fixed;
+  bottom: 0px;
+  right: 30px;
+  width: 450px;
+  height: auto;
+  background-color: #545454;
+  padding: 20px 30px;
+  box-sizing: border-box;
+  z-index: 6;
+  transition: all 1s ease-out;
+  text-align: justify;
+  text-align-last: center;
+}
+.cookies-and-privacy-notification.hide {
+  bottom: -90px;
+}
+.cookies-and-privacy-notification p {
+  color: #ffffff;
+  font-size: 1rem;
+}
+.cookies-and-privacy-notification .close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 10px;
+  height: 10px;
+  cursor: pointer;
+  fill: #ffffff;
+}
 header {
   position: fixed;
   left: 0;
@@ -418,7 +448,7 @@ header .home-logo-wrapper .logo-text {
 header .menu-wrapper {
   position: absolute;
   top: 0;
-  right: 190px;
+  right: 230px;
   width: 40%;
   height: 100%;
   transition: 1 height ease-in-out;
@@ -439,7 +469,7 @@ header .menu-wrapper ul li.no-right-margin {
 header .social-network-wrapper {
   position: absolute;
   right: 50px;
-  width: 110px;
+  width: 150px;
   height: 30px;
 }
 header .social-network-wrapper .social-network-link {
@@ -465,6 +495,10 @@ header .social-network-wrapper .social-network-link.whatsapp {
   top: 0;
   left: 40px;
 }
+header .social-network-wrapper .social-network-link.mail {
+  top: 0;
+  left: 80px;
+}
 section {
   position: absolute;
   top: 0;
@@ -486,12 +520,19 @@ section {
 #home-section {
   height: 100vh;
   z-index: 0;
+  padding: 0;
 }
-#home-section .home-image {
+#home-section .home-image-wrapper {
   position: absolute;
-  min-height: 100%;
-  width: 100%;
+  top: 55px;
+  left: 0;
+  width: 100vw;
+  height: calc(100vh - 55px);
   z-index: -1;
+  overflow: hidden;
+}
+#home-section .home-image-wrapper .home-image {
+  position: absolute;
 }
 #home-section .slogan-wrapper {
   position: absolute;
@@ -524,9 +565,6 @@ section {
   color: #ffffff;
   opacity: 0.7;
 }
-#home-section .slogan-wrapper.grey-background {
-  border-bottom-color: #545454;
-}
 #contact-section {
   top: 100%;
   height: 100vh;
@@ -535,20 +573,22 @@ section {
   z-index: 1;
   padding-left: 0;
   padding-right: 0;
-  padding-top: 55px;
+  padding-top: 0;
   background-color: #C15437;
 }
 #contact-section .section-wrapper {
   position: relative;
-  height: calc(100vh - 55px);
+  height: 100vh;
 }
 #contact-section .section-wrapper .image-wrapper {
   width: 50%;
   height: 100%;
   position: relative;
   display: inline-block;
+  overflow: hidden;
 }
 #contact-section .section-wrapper .image-wrapper .contact-image {
+  position: absolute;
   height: 100%;
 }
 #contact-section .section-wrapper .text-wrapper {
@@ -582,16 +622,24 @@ section {
   z-index: 1;
   padding-left: 0;
   padding-right: 0;
-  padding-top: 55px;
+  padding-top: 0;
 }
 #about-section .section-wrapper {
   position: relative;
-  height: calc(100vh - 55px);
+  height: 100vh;
+  width: 100%;
 }
-#about-section .section-wrapper .about-image {
+#about-section .section-wrapper .image-wrapper {
   position: relative;
   display: inline-block;
   width: 50%;
+  height: 100vh;
+  overflow: hidden;
+}
+#about-section .section-wrapper .image-wrapper .about-image {
+  position: absolute;
+  min-width: 100%;
+  min-height: 100%;
 }
 #about-section .section-wrapper .text-wrapper {
   position: relative;
@@ -615,7 +663,12 @@ section {
   text-align: justify;
   color: white;
 }
-#services-section {
+.services-sections-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+}
+.services-sections-wrapper #services-section {
   top: 100%;
   height: auto;
   width: 100%;
@@ -624,14 +677,14 @@ section {
   background-color: #ffffff;
   display: none;
 }
-#services-section .section-title {
+.services-sections-wrapper #services-section .section-title {
   color: #C15437;
   margin-bottom: 40px;
   text-align: left;
   margin: 0 10%;
   box-sizing: border-box;
 }
-#services-section .set-wrapper {
+.services-sections-wrapper #services-section .set-wrapper {
   position: relative;
   width: 80%;
   height: 400px;
@@ -639,51 +692,62 @@ section {
   margin-bottom: 120px;
   box-sizing: border-box;
 }
-#services-section .set-wrapper:last-child {
+.services-sections-wrapper #services-section .set-wrapper:last-child {
   margin-bottom: 0;
 }
-#services-section .set-wrapper.wide {
+.services-sections-wrapper #services-section .set-wrapper.wide {
   width: 90%;
   margin-right: 0;
 }
-#services-section .set-wrapper.wide .image-wrapper {
+.services-sections-wrapper #services-section .set-wrapper.wide .image-wrapper {
   width: 525px;
 }
-#services-section .set-wrapper.inverted.wide {
+.services-sections-wrapper #services-section .set-wrapper.inverted.wide {
+  width: 100%;
   margin-left: 0;
 }
-#services-section .set-wrapper.inverted .service-paragraph {
+.services-sections-wrapper #services-section .set-wrapper.inverted .service-paragraph {
   right: 0;
   left: auto;
 }
-#services-section .set-wrapper.inverted .image-wrapper {
+.services-sections-wrapper #services-section .set-wrapper.inverted .image-wrapper {
   left: 0;
   right: auto;
 }
-#services-section .set-wrapper .service-paragraph {
+.services-sections-wrapper #services-section .set-wrapper.wide-image .service-paragraph {
+  width: 50%;
+  padding-left: 75px;
+  box-sizing: border-box;
+  padding-right: 10%;
+}
+.services-sections-wrapper #services-section .set-wrapper.wide-image .image-wrapper {
+  width: 50%;
+}
+.services-sections-wrapper #services-section .set-wrapper .service-paragraph {
   position: absolute;
   left: 0;
   width: 55%;
   color: #545454;
   text-align: justify;
 }
-#services-section .set-wrapper .service-paragraph.left-side {
+.services-sections-wrapper #services-section .set-wrapper .service-paragraph.left-side {
   float: left;
 }
-#services-section .set-wrapper .service-paragraph.right-side {
+.services-sections-wrapper #services-section .set-wrapper .service-paragraph.right-side {
   float: right;
 }
-#services-section .set-wrapper .image-wrapper {
+.services-sections-wrapper #services-section .set-wrapper .image-wrapper {
   position: absolute;
   right: 0;
   width: 390px;
   height: 390px;
   overflow: hidden;
 }
-#services-section .set-wrapper .image-wrapper.circle-shape {
+.services-sections-wrapper #services-section .set-wrapper .image-wrapper.circle-shape {
   border-radius: 50%;
 }
-#services-section .set-wrapper .image-wrapper .service-image {
+.services-sections-wrapper #services-section .set-wrapper .image-wrapper .service-image {
   position: relative;
-  height: 100%;
+  min-height: 100%;
+  width: 100%;
 }
