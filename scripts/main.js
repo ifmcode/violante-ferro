@@ -24,6 +24,8 @@ function bindEvents() {
   $('.home-logo-wrapper .logo').click(goToHomeSection);
   $('.home-logo-wrapper .logo-text').click(goToHomeSection);
   $(".cookies-and-privacy-notification .close-button").click(hideCookieNotification);
+  $(".cookies-policy-link").click(showPoliciesPopup);
+  $(".popup-cookies-and-privacy-policies .close-button").click(hidePoliciesPopup);
 }
 
 function initializeVariables() {
@@ -89,6 +91,14 @@ function hideCookieNotification() {
   $(".cookies-and-privacy-notification").addClass("hide");
 }
 
+function showPoliciesPopup() {
+  $(".popup-cookies-and-privacy-policies").css({"display":"block","opacity":"1"});
+}
+
+function hidePoliciesPopup() {
+  $(".popup-cookies-and-privacy-policies").css({"display":"none","opacity":"0"});
+}
+
 function goToHomeSection() {
   if (shownSection !== homeSection && !generalAnimation._active) {
     navigate(homeSection);
@@ -114,15 +124,13 @@ function goToMyIntentionSection(event) {
 }
 
 function navigate(sectionToShow, event) {
+  disableScroll();
   updateActiveLink(event);
   generalAnimation = new TimelineMax();
   sectionToShow.css('display','block');
-  disableScroll();
-  if (sectionToShow === homeSection) {
-    doHomeAnimation(sectionToShow);
-  } else {
-    doSectionAnimation(sectionToShow);
-  }
+  (sectionToShow === homeSection)
+    ? doHomeAnimation(sectionToShow)
+    : doSectionAnimation(sectionToShow);
 
   $("header").toggleClass("light-grey-background", sectionToShow === myIntentionSection);
 }
@@ -133,9 +141,10 @@ function updateActiveLink(event) {
 }
 
 function doSectionAnimation(sectionToShow) {
+  (sectionToShow === myIntentionSection) && sectionToShow.scrollTop(0);
   sectionToShow.css({'z-index': '2', 'top':'100%'});
   shownSection.css('z-index', '1');
-  generalAnimation.to(sectionToShow, 1, {'top':'0', ease: Power2.easeInOut}, 0)
+  generalAnimation.to(sectionToShow, 1, {'top':'55px', ease: Power2.easeInOut}, 0)
   .to(shownSection, 1, {'top': '-50%', ease: Power2.easeInOut, onComplete: function () {
     const cssRules = (shownSection !== homeSection)
       ? {'display':'none', 'top':'100%'}
@@ -147,12 +156,9 @@ function doSectionAnimation(sectionToShow) {
 }
 
 function doHomeAnimation(sectionToShow) {
-  const topOfScreen = $(window).scrollTop(),
-    bottomOfScreen = $(window).scrollTop() + window.innerHeight;
-
   sectionToShow.css('z-index', '1');
   shownSection.css('z-index', '2');
-  generalAnimation.to(sectionToShow, 1, {'top': `0`, ease: Power2.easeInOut}, 0)
+  generalAnimation.to(sectionToShow, 1, {'top': `55px`, ease: Power2.easeInOut}, 0)
   .to(shownSection, 1, {'top': '100%', ease: Power2.easeInOut, onComplete: function () {
     shownSection.css({'display':'none', 'top':'100%'});
     shownSection = sectionToShow;
