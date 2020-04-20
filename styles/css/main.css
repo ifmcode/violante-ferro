@@ -377,7 +377,7 @@ ul {
   top: 0;
   background-color: #C15437;
 }
-.popup-cookies-and-privacy-policies {
+.cookies-and-privacy-policies-popup {
   position: fixed;
   width: 100%;
   height: 100vh;
@@ -389,7 +389,7 @@ ul {
   overflow: hidden;
   z-index: 10;
 }
-.popup-cookies-and-privacy-policies .close-button {
+.cookies-and-privacy-policies-popup .close-button {
   position: absolute;
   top: 40px;
   right: 40px;
@@ -398,7 +398,7 @@ ul {
   cursor: pointer;
   fill: #ffffff;
 }
-.popup-cookies-and-privacy-policies .policies-wrapper {
+.cookies-and-privacy-policies-popup .policies-wrapper {
   position: relative;
   width: 100%;
   height: 100%;
@@ -407,17 +407,17 @@ ul {
   box-sizing: border-box;
   overflow: auto;
 }
-.popup-cookies-and-privacy-policies .policies-wrapper .policies-title {
+.cookies-and-privacy-policies-popup .policies-wrapper .policies-title {
   font-family: 'aller-bd';
   font-size: 2rem;
   color: #C15437;
   margin-top: 80px;
   margin-bottom: 40px;
 }
-.popup-cookies-and-privacy-policies .policies-wrapper .policies-title:first-child {
+.cookies-and-privacy-policies-popup .policies-wrapper .policies-title:first-child {
   margin-top: 0;
 }
-.popup-cookies-and-privacy-policies .policies-wrapper .policies-text {
+.cookies-and-privacy-policies-popup .policies-wrapper .policies-text {
   font-family: 'aller-lt-it';
   font-size: 1rem;
   line-height: 1.5rem;
@@ -684,8 +684,11 @@ section {
   width: 80%;
   height: 400px;
   margin: 0 10%;
-  margin-bottom: 120px;
+  margin-bottom: 140px;
   box-sizing: border-box;
+}
+#services-section .section-wrapper .set-wrapper.lower-bottom-margin {
+  margin-bottom: 20px;
 }
 #services-section .section-wrapper .set-wrapper.wide {
   width: 90%;
@@ -718,7 +721,7 @@ section {
 #services-section .section-wrapper .set-wrapper .service-paragraph {
   position: absolute;
   left: 0;
-  width: 55%;
+  width: 65%;
   color: #545454;
   text-align: justify;
 }
@@ -731,8 +734,8 @@ section {
 #services-section .section-wrapper .set-wrapper .image-wrapper {
   position: absolute;
   right: 0;
-  width: 390px;
-  height: 390px;
+  width: 320px;
+  height: 320px;
   overflow: hidden;
 }
 #services-section .section-wrapper .set-wrapper .image-wrapper.circle-shape {
@@ -833,6 +836,14 @@ section {
 #contact-section .section-wrapper .text-wrapper .social-network-wrapper {
   position: relative;
   right: auto;
+  margin: 0 auto;
+  width: 164px;
+}
+#contact-section .section-wrapper .text-wrapper .social-network-wrapper .social-network-link {
+  margin-right: 20px;
+}
+#contact-section .section-wrapper .text-wrapper .social-network-wrapper .social-network-link:last-child {
+  margin-right: 0;
 }
 #contact-section .section-wrapper .text-wrapper .social-network-wrapper svg {
   fill: #ffffff;

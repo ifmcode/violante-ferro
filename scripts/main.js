@@ -25,7 +25,7 @@ function bindEvents() {
   $('.home-logo-wrapper .logo-text').click(goToHomeSection);
   $(".cookies-and-privacy-notification .close-button").click(hideCookieNotification);
   $(".cookies-policy-link").click(showPoliciesPopup);
-  $(".popup-cookies-and-privacy-policies .close-button").click(hidePoliciesPopup);
+  $(".cookies-and-privacy-policies-popup .close-button").click(hidePoliciesPopup);
 }
 
 function initializeVariables() {
@@ -92,11 +92,11 @@ function hideCookieNotification() {
 }
 
 function showPoliciesPopup() {
-  $(".popup-cookies-and-privacy-policies").css({"display":"block","opacity":"1"});
+  $(".cookies-and-privacy-policies-popup").css({"display":"block","opacity":"1"});
 }
 
 function hidePoliciesPopup() {
-  $(".popup-cookies-and-privacy-policies").css({"display":"none","opacity":"0"});
+  $(".cookies-and-privacy-policies-popup").css({"display":"none","opacity":"0"});
 }
 
 function goToHomeSection() {
