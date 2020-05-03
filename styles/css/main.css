@@ -407,6 +407,14 @@ ul {
   box-sizing: border-box;
   overflow: auto;
 }
+.cookies-and-privacy-policies-popup .policies-wrapper .title {
+  font-family: 'aller-bd';
+  font-size: 2.4rem;
+  color: #C15437;
+  margin-bottom: 60px;
+  text-transform: uppercase;
+  text-align: center;
+}
 .cookies-and-privacy-policies-popup .policies-wrapper .policies-title {
   font-family: 'aller-bd';
   font-size: 2rem;
@@ -422,6 +430,7 @@ ul {
   font-size: 1rem;
   line-height: 1.5rem;
   color: #545454;
+  text-align: justify;
 }
 .cookies-and-privacy-notification {
   position: fixed;
