@@ -298,9 +298,9 @@ ul {
   transform: translate(-50%, -50%);
 }
 .paragraph {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   letter-spacing: 3px;
-  line-height: 2rem;
+  line-height: 2.5rem;
 }
 .paragraph .highlighted {
   font-size: 1.5rem;
@@ -664,6 +664,7 @@ section {
   display: none;
   z-index: 1;
   overflow: auto;
+  padding-top: 105px;
 }
 #services-section::-webkit-scrollbar {
   width: 0;
@@ -676,7 +677,7 @@ section {
 #services-section .section-wrapper .section-title {
   color: #C15437;
   text-align: left;
-  margin: 105px 10% 40px 10%;
+  margin: 0 10% 40px 10%;
   box-sizing: border-box;
 }
 #services-section .section-wrapper .set-wrapper {
@@ -684,58 +685,32 @@ section {
   width: 80%;
   height: 400px;
   margin: 0 10%;
-  margin-bottom: 140px;
+  margin-bottom: 100px;
   box-sizing: border-box;
 }
-#services-section .section-wrapper .set-wrapper.lower-bottom-margin {
-  margin-bottom: 20px;
-}
-#services-section .section-wrapper .set-wrapper.wide {
-  width: 90%;
-  margin-right: 0;
-}
-#services-section .section-wrapper .set-wrapper.wide .image-wrapper {
-  width: 525px;
-}
-#services-section .section-wrapper .set-wrapper.inverted.wide {
-  width: 100%;
-  margin-left: 0;
-}
-#services-section .section-wrapper .set-wrapper.inverted .service-paragraph {
-  right: 0;
-  left: auto;
-}
-#services-section .section-wrapper .set-wrapper.inverted .image-wrapper {
-  left: 0;
-  right: auto;
-}
-#services-section .section-wrapper .set-wrapper.wide-image .service-paragraph {
-  width: 50%;
-  padding-left: 75px;
-  box-sizing: border-box;
-  padding-right: 10%;
-}
-#services-section .section-wrapper .set-wrapper.wide-image .image-wrapper {
-  width: 50%;
-}
-#services-section .section-wrapper .set-wrapper .service-paragraph {
+#services-section .section-wrapper .set-wrapper .text-wrapper {
   position: absolute;
   left: 0;
   width: 65%;
+}
+#services-section .section-wrapper .set-wrapper .text-wrapper .highlighted {
+  font-size: 1.3rem;
+}
+#services-section .section-wrapper .set-wrapper .text-wrapper .service-paragraph {
+  position: relative;
+  width: 100%;
   color: #545454;
   text-align: justify;
+  margin-bottom: 40px;
 }
-#services-section .section-wrapper .set-wrapper .service-paragraph.left-side {
-  float: left;
-}
-#services-section .section-wrapper .set-wrapper .service-paragraph.right-side {
-  float: right;
+#services-section .section-wrapper .set-wrapper .text-wrapper .service-paragraph:last-child {
+  margin-bottom: 0;
 }
 #services-section .section-wrapper .set-wrapper .image-wrapper {
   position: absolute;
   right: 0;
-  width: 320px;
-  height: 320px;
+  width: 400px;
+  height: 400px;
   overflow: hidden;
 }
 #services-section .section-wrapper .set-wrapper .image-wrapper.circle-shape {
@@ -749,19 +724,18 @@ section {
 #services-section .section-wrapper .offer-wrapper {
   position: relative;
   width: 100%;
-  height: 380px;
+  height: 500px;
   overflow: hidden;
 }
 #services-section .section-wrapper .offer-wrapper .orange-triangle {
   position: absolute;
   top: 0;
   left: 0;
-  width: 0;
-  height: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #C15437;
+  opacity: 0.7;
   z-index: 2;
-  border-right: 1000px solid transparent;
-  border-bottom: 465px solid #C15437;
-  opacity: 0.8;
 }
 #services-section .section-wrapper .offer-wrapper img {
   position: absolute;
@@ -771,21 +745,20 @@ section {
 }
 #services-section .section-wrapper .offer-wrapper .text-wrapper {
   position: absolute;
-  bottom: 30px;
-  left: 30px;
-  width: 470px;
+  width: 90%;
   z-index: 3;
   color: #ffffff;
+  text-align: center;
 }
 #services-section .section-wrapper .offer-wrapper .text-wrapper .title {
   position: relative;
-  font-size: 2.3rem;
+  font-size: 2rem;
   margin-bottom: 20px;
 }
 #services-section .section-wrapper .offer-wrapper .text-wrapper .text {
   position: relative;
-  font-size: 1rem;
-  line-height: 1.5;
+  font-size: 1.4rem;
+  line-height: 2.7rem;
 }
 #contact-section {
   display: none;
