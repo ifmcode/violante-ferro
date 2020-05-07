@@ -3,8 +3,10 @@ const contactSection = $('#contact-section'),
   myIntentionSection = $('#services-section'),
   homeSection = $('#home-section');
 
-let shownSection;
-let generalAnimation;
+let shownSection,
+  generalAnimation,
+  isMobileMenuShown,
+  isMobileSizes;
 
 $('document').ready(function () {
   setInitialValues();
@@ -18,6 +20,7 @@ function setInitialValues() {
 }
 
 function bindEvents() {
+  $(window).resize(resizeElements);
   $('.link-to-contact-section').click(goToContactSection);
   $('.link-to-about-section').click(goToAboutSection);
   $('.link-to-services-section').click(goToMyIntentionSection);
@@ -26,18 +29,54 @@ function bindEvents() {
   $(".cookies-and-privacy-notification .close-button").click(hideCookieNotification);
   $(".cookies-policy-link").click(showPoliciesPopup);
   $(".cookies-and-privacy-policies-popup .close-button").click(hidePoliciesPopup);
+  $("header .mobile-menu-logo-wrapper").click(showMobileMenu);
+  $(".mobile-menu-wrapper .menu-left-part").click(hideMobileMenu);
+  $(".mobile-menu-wrapper .menu-right-part .close-button").click(hideMobileMenu);
 }
 
 function initializeVariables() {
   shownSection = homeSection;
   generalAnimation = new TimelineMax();
-  // acordarme de rellamar a la función cuando haga un resize de la pantalla
-  setHomeImageWidth();
+  isMobileMenuShown = false;
+  isMobileSizes = window.innerWidth <= 1000;
+}
 
+function resizeElements() {
+  isMobileSizes = window.innerWidth <= 1000;
+  if (isMobileMenuShown && window.innerWidth >= 850) {
+    hideMobileMenu();
+  }
+
+  if (window.innerWidth >= 650) {
+    $(".cookies-and-privacy-notification").removeClass("horizontal-centered");
+  } else {
+    $(".cookies-and-privacy-notification").addClass("horizontal-centered");
+  }
 }
 
 function loadSplash() {
-  splashAnimation1();
+  resetGeneralAnimation();
+  const progressBar = $('.splash .progress-bar');
+  generalAnimation.to(progressBar, 1, {'left':'0', ease: Power2.easeOut, onComplete: function() {
+    removeSplash();
+  }}, 0);
+}
+
+function showMobileMenu() {
+  if (!generalAnimation._active) {
+    resetGeneralAnimation();
+    isMobileMenuShown = true;
+    $(".mobile-menu-wrapper").css("display", "block");
+    generalAnimation.to($(".mobile-menu-wrapper"), 1, {'left':'0', ease: Power2.easeOut}, 0);
+  }
+}
+
+function hideMobileMenu() {
+  resetGeneralAnimation();
+  generalAnimation.to($(".mobile-menu-wrapper"), 1, {'left':'100%', ease: Power2.easeIn, onComplete: function() {
+    $(".mobile-menu-wrapper").css("display", "none");
+    isMobileMenuShown = false;
+  }}, 0);
 }
 
 function setHomeImageWidth() {
@@ -59,16 +98,8 @@ function resetGeneralAnimation() {
   generalAnimation = new TimelineMax();
 }
 
-function splashAnimation1() {
-  this.resetGeneralAnimation();
-  const progressBar = $('.splash .progress-bar');
-  generalAnimation.to(progressBar, .4, {'left':'0', ease: Power2.easeOut, onComplete: function() {
-    removeSplash();
-  }}, 0);
-}
-
 function removeSplash() {
-  this.resetGeneralAnimation();
+  resetGeneralAnimation();
   generalAnimation.to($('.splash'), 1, {opacity: 0, ease: Power2.easeOut, onComplete: function() {
     $('.splash').css('display', 'none');
     showCookieNotification();
@@ -105,6 +136,10 @@ function goToHomeSection() {
   }
 }
 
+function isLinkOfMobileMenu(event) {
+  return event && $(event.target).parents('.mobile-menu-wrapper').length > 0;
+}
+
 function goToContactSection(event) {
   if (shownSection !== contactSection && !generalAnimation._active) {
     navigate(contactSection, event);
@@ -125,6 +160,7 @@ function goToMyIntentionSection(event) {
 
 function navigate(sectionToShow, event) {
   disableScroll();
+  isLinkOfMobileMenu(event) && hideMobileMenu();
   updateActiveLink(event);
   generalAnimation = new TimelineMax();
   sectionToShow.css('display','block');
@@ -141,11 +177,12 @@ function updateActiveLink(event) {
 }
 
 function doSectionAnimation(sectionToShow) {
-  (sectionToShow === myIntentionSection) && sectionToShow.scrollTop(0);
+  sectionToShow.scrollTop(0);
   sectionToShow.css({'z-index': '2', 'top':'100%'});
   shownSection.css('z-index', '1');
-  generalAnimation.to(sectionToShow, 1, {'top':'55px', ease: Power2.easeInOut}, 0)
-  .to(shownSection, 1, {'top': '-50%', ease: Power2.easeInOut, onComplete: function () {
+  const animationDuration = isMobileSizes ? 0 : 1;
+  generalAnimation.to(sectionToShow, animationDuration, {'top':'55px', ease: Power2.easeInOut}, 0)
+  .to(shownSection, animationDuration, {'top': '-50%', ease: Power2.easeInOut, onComplete: function () {
     const cssRules = (shownSection !== homeSection)
       ? {'display':'none', 'top':'100%'}
       : {'display': 'none'};
@@ -158,8 +195,9 @@ function doSectionAnimation(sectionToShow) {
 function doHomeAnimation(sectionToShow) {
   sectionToShow.css('z-index', '1');
   shownSection.css('z-index', '2');
-  generalAnimation.to(sectionToShow, 1, {'top': `55px`, ease: Power2.easeInOut}, 0)
-  .to(shownSection, 1, {'top': '100%', ease: Power2.easeInOut, onComplete: function () {
+  const animationDuration = isMobileSizes ? 0 : 1;
+  generalAnimation.to(sectionToShow, animationDuration, {'top': `55px`, ease: Power2.easeInOut}, 0)
+  .to(shownSection, animationDuration, {'top': '100%', ease: Power2.easeInOut, onComplete: function () {
     shownSection.css({'display':'none', 'top':'100%'});
     shownSection = sectionToShow;
     disableScroll();
