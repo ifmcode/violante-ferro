@@ -1035,9 +1035,9 @@ section {
     width: 100%;
     padding: 75px 7%;
     margin-left: 0;
-    transform: none;
     box-sizing: border-box;
     background-color: #C15437;
+    transform: none;
   }
   #contact-section .section-wrapper .image-wrapper {
     width: 100%;

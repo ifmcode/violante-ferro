@@ -76,6 +76,10 @@
         height: 100%;
         right: auto;
         left: 50%;
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        -o-transform: translateX(-50%);
         transform: translateX(-50%);
       }
     }
@@ -146,9 +150,13 @@
         width: 100%;
         padding: 75px 7%;
         margin-left: 0;
-        transform: none;
         box-sizing: border-box;
         background-color: @orange;
+        -webkit-transform: none;
+        -moz-transform: none;
+        -ms-transform: none;
+        -o-transform: none;
+        transform: none;
       }
       
       .image-wrapper {
@@ -229,6 +237,10 @@
           position: relative;
           top: auto;
           left: auto;
+          -webkit-transform: none;
+          -moz-transform: none;
+          -ms-transform: none;
+          -o-transform: none;
           transform: none;
           
           .text {
