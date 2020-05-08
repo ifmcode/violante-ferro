@@ -13,20 +13,17 @@
 .font-aller-lt-it {
   font-family: 'aller-lt-it';
 }
-.black-font {
-  color: #000000;
-}
 @font-face {
   font-family: "aller-bd";
-  src: url("../../resources/fonts/Aller_Bd.ttf") format("truetype");
+  src: url("../../resources/fonts/Aller_Bd.ttf") format("truetype"), url('../../resources/fonts/Aller_Bd.otf') format('opentype'), url('../../resources/fonts/aller_bd-webfont.woff') format('woff'), url('../../resources/fonts/aller_bd-webfont.woff2') format('woff2');
 }
 @font-face {
   font-family: "aller-bd-it";
-  src: url("../../resources/fonts/Aller_BdIt.ttf") format("truetype");
+  src: url("../../resources/fonts/Aller_BdIt.ttf") format("truetype"), url('../../resources/fonts/Aller_BdIt.otf') format('opentype'), url('../../resources/fonts/aller_bdit-webfont.woff') format('woff'), url('../../resources/fonts/aller_bdit-webfont.woff2') format('woff2');
 }
 @font-face {
   font-family: "aller-lt-it";
-  src: url("../../resources/fonts/Aller_LtIt.ttf") format("truetype");
+  src: url("../../resources/fonts/Aller_LtIt.ttf") format("truetype"), url('../../resources/fonts/Aller_LtIt.otf') format('opentype'), url('../../resources/fonts/aller_ltit-webfont.woff') format('woff'), url('../../resources/fonts/aller_ltit-webfont.woff2') format('woff2');
 }
 article,
 aside,
@@ -596,7 +593,7 @@ header .menu-wrapper {
   position: absolute;
   top: 0;
   right: 230px;
-  width: 305px;
+  width: 400px;
   height: 100%;
 }
 header .menu-wrapper ul {
