@@ -319,7 +319,6 @@ ul {
   font-size: 16px;
   color: #000000;
   text-transform: uppercase;
-  font-weight: 900;
   transition: color 0.3s ease-out;
 }
 .section-link .link-text.active {
