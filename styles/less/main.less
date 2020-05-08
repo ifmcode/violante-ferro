@@ -310,8 +310,11 @@ ul {
           list-style-type: none;
           margin-bottom: 30px;
           span {
-            color: @orange;
+            color: @grey;
             font-size: 1.8rem;
+            &.active {
+              color: @orange;
+            }
           }
         }
       }
@@ -499,6 +502,7 @@ section {
       position: relative;
       width: 50%;
       height: 100%;
+      min-height: 300px;
       overflow: hidden;
       float: left;
 
@@ -575,7 +579,7 @@ section {
       
       .text-wrapper {
         position: relative;
-        width: 65%;
+        width: calc(100% - 450px);
         display: inline-block;
         vertical-align: middle;
         margin-right: -5px;
@@ -598,11 +602,12 @@ section {
 
       .image-wrapper {
         position: relative;
-        width: 30%;
-        margin-left: 5%;
+        width: 450px;
+        padding-left: 50px;
         height: 400px;
         display: inline-block;
         vertical-align: middle;
+        box-sizing: border-box;
         
         .image-overlay {
           position: absolute;
