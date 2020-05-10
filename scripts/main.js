@@ -39,9 +39,11 @@ function initializeVariables() {
   generalAnimation = new TimelineMax();
   isMobileMenuShown = false;
   isMobileSizes = window.innerWidth <= 1000;
+  adjustHomeImage();
 }
 
 function resizeElements() {
+  adjustHomeImage();
   isMobileSizes = window.innerWidth <= 1000;
   if (isMobileMenuShown && window.innerWidth >= 850) {
     hideMobileMenu();
@@ -51,6 +53,19 @@ function resizeElements() {
     $(".cookies-and-privacy-notification").removeClass("horizontal-centered");
   } else {
     $(".cookies-and-privacy-notification").addClass("horizontal-centered");
+  }
+}
+
+function adjustHomeImage() {
+  const mainImage = $("#home-section .home-image-wrapper .home-image"),
+    maxHeight = window.innerHeight - 55,
+    maxWidth = window.innerWidth;
+
+  if (mainImage.height() < maxHeight) {
+    mainImage.css({"height": "100%", "width": "auto"});
+  }
+  if (mainImage.width() < maxWidth) {
+    mainImage.css({"height": "auto", "width": "100%"});
   }
 }
 
@@ -193,6 +208,7 @@ function doSectionAnimation(sectionToShow) {
 }
 
 function doHomeAnimation(sectionToShow) {
+  adjustHomeImage();
   sectionToShow.css('z-index', '1');
   shownSection.css('z-index', '2');
   const animationDuration = isMobileSizes ? 0 : 1;
