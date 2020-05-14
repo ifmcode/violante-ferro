@@ -1002,6 +1002,18 @@ section {
   header .menu-wrapper ul .section-link {
     margin-right: 14px;
   }
+  .cookies-and-privacy-policies-popup {
+    padding: 60px 40px;
+  }
+  .cookies-and-privacy-policies-popup .close-button {
+    top: 20px;
+    right: 39px;
+    width: 16px;
+    height: 16px;
+  }
+  .cookies-and-privacy-policies-popup .policies-wrapper {
+    padding: 40px;
+  }
   #about-section .section-wrapper .image-wrapper,
   #about-section .section-wrapper .text-wrapper {
     width: 100%;
@@ -1114,18 +1126,6 @@ section {
 }
 /* ______________________________________________  RESOLUCION 700px  ______________________________________________*/
 @media (max-width: 700px) {
-  .cookies-and-privacy-policies-popup {
-    padding: 60px 40px;
-  }
-  .cookies-and-privacy-policies-popup .close-button {
-    top: 20px;
-    right: 39px;
-    width: 16px;
-    height: 16px;
-  }
-  .cookies-and-privacy-policies-popup .policies-wrapper {
-    padding: 40px;
-  }
   #about-section .section-wrapper .image-wrapper .about-image {
     top: 50%;
   }
