@@ -43,7 +43,7 @@ function initializeVariables() {
 }
 
 function resizeElements() {
-  adjustHomeImage();
+  adjustImages();
   isMobileSizes = window.innerWidth <= 1000;
   if (isMobileMenuShown && window.innerWidth >= 850) {
     hideMobileMenu();
@@ -56,16 +56,40 @@ function resizeElements() {
   }
 }
 
+function adjustImages() {
+  adjustHomeImage();
+  adjustAboutImage();
+}
+
 function adjustHomeImage() {
-  const mainImage = $("#home-section .home-image-wrapper .home-image"),
+  const homeImage = $("#home-section .home-image-wrapper .home-image"),
     maxHeight = window.innerHeight - 55,
     maxWidth = window.innerWidth;
-
-  if (mainImage.height() < maxHeight) {
-    mainImage.css({"height": "100%", "width": "auto"});
+  
+  if (homeImage.height() < maxHeight) {
+    homeImage.css({"height": "100%", "width": "auto"});
   }
-  if (mainImage.width() < maxWidth) {
-    mainImage.css({"height": "auto", "width": "100%"});
+
+  if (homeImage.width() < maxWidth) {
+    homeImage.css({"height": "auto", "width": "100%"});
+    homeImage.css("top", "50%");
+  }
+
+  if (homeImage.height() > (maxHeight * 1.1)) {
+    homeImage.css("top", "55%");
+  } else {
+    homeImage.css("top", "50%");
+  }
+}
+
+function adjustAboutImage() {
+  const aboutImage = $("#about-section .section-wrapper .image-wrapper .about-image"),
+    maxHeight = window.innerHeight - 55;
+  
+  if (aboutImage.height() > (maxHeight * 1.2)) {
+    aboutImage.css("top", "60%");
+  } else {
+    aboutImage.css("top", "50%");
   }
 }
 
@@ -192,6 +216,9 @@ function updateActiveLink(event) {
 }
 
 function doSectionAnimation(sectionToShow) {
+  if (sectionToShow === aboutSection) {
+    adjustAboutImage();
+  }
   sectionToShow.scrollTop(0);
   sectionToShow.css({'z-index': '2', 'top':'100%'});
   shownSection.css('z-index', '1');

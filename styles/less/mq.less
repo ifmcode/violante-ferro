@@ -487,8 +487,8 @@
   }
 }
 
-/* ______________________________________________  RESOLUCION 320px  ______________________________________________*/
-@media (min-width: 1000px) and (max-width: 1300px) and (max-height: 700px) {
+/* ______________________________________________  RESOLUCION 700px - HEIGHT  ______________________________________________*/
+@media (max-height: 700px) {
   #about-section .section-wrapper .text-wrapper .title-paragraph-wrapper .about-paragraph,
   #contact-section .section-wrapper .text-wrapper .contact-paragraph,
   #services-section .section-wrapper .set-wrapper .text-wrapper .service-paragraph {
@@ -501,5 +501,73 @@
 
   .section-title {
     font-size: 2.5rem;
+  }
+
+  #services-section .section-wrapper .offer-wrapper .text-wrapper .text {
+    font-size: 1.2rem;
+
+    .highlighted {
+      font-size: 1.3rem;
+    }
+  }
+}
+
+/* ______________________________________________  RESOLUCION 400px - HEIGHT  ______________________________________________*/
+@media (max-height: 400px) {
+  #services-section {
+    padding-top: 40px;
+  }
+
+  #contact-section .section-wrapper .text-wrapper {
+    padding: 40px 7% 75px 7%;
+  }
+}
+
+/* ______________________________________________  RESOLUCION 320px  ______________________________________________*/
+@media (min-width: 1000px) and (max-width: 1300px) {
+  #about-section .section-wrapper .text-wrapper .title-paragraph-wrapper .about-paragraph,
+  #contact-section .section-wrapper .text-wrapper .contact-paragraph,
+  #services-section .section-wrapper .set-wrapper .text-wrapper .service-paragraph {
+    font-size: 1rem;
+    line-height: 2rem;
+    .highlighted {
+      font-size: 1.1rem;
+    }
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+  }
+
+  #services-section .section-wrapper {
+    .offer-wrapper .text-wrapper .text {
+      font-size: 1.2rem;
+
+      .highlighted {
+        font-size: 1.3rem;
+      }
+    }
+  }
+}
+
+/* ______________________________________________  RESOLUCION 500px - HEIGHT  ______________________________________________*/
+@media (max-height: 500px) and (min-width: 401px) {
+  .mobile-menu-wrapper .menu-right-part .section-links-and-social-network-wrapper {
+    left: 90px;
+
+    ul .section-link span {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+/* ______________________________________________  RESOLUCION 400px - HEIGHT  ______________________________________________*/
+@media (max-height: 400px)  and (min-width: 401px) {
+  .mobile-menu-wrapper .menu-right-part .section-links-and-social-network-wrapper {
+    left: 70px;
+    
+    ul .section-link span {
+      font-size: 1.3rem;
+    }
   }
 }
