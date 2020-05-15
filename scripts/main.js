@@ -58,7 +58,6 @@ function resizeElements() {
 
 function adjustImages() {
   adjustHomeImage();
-  adjustAboutImage();
 }
 
 function adjustHomeImage() {
@@ -80,17 +79,6 @@ function adjustHomeImage() {
   } else {
     homeImage.css("top", "50%");
   }
-}
-
-function adjustAboutImage() {
-  const aboutImage = $("#about-section .section-wrapper .image-wrapper .about-image"),
-    maxHeight = window.innerHeight - 55;
-  
-  /*if (aboutImage.height() > (maxHeight * 1.2)) {
-    aboutImage.css("top", "60%");
-  } else {
-    aboutImage.css("top", "50%");
-  }*/
 }
 
 function loadSplash() {
@@ -216,9 +204,6 @@ function updateActiveLink(event) {
 }
 
 function doSectionAnimation(sectionToShow) {
-  if (sectionToShow === aboutSection) {
-    adjustAboutImage();
-  }
   sectionToShow.scrollTop(0);
   sectionToShow.css({'z-index': '2', 'top':'100%'});
   shownSection.css('z-index', '1');
