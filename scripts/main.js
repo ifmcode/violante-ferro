@@ -86,11 +86,11 @@ function adjustAboutImage() {
   const aboutImage = $("#about-section .section-wrapper .image-wrapper .about-image"),
     maxHeight = window.innerHeight - 55;
   
-  if (aboutImage.height() > (maxHeight * 1.2)) {
+  /*if (aboutImage.height() > (maxHeight * 1.2)) {
     aboutImage.css("top", "60%");
   } else {
     aboutImage.css("top", "50%");
-  }
+  }*/
 }
 
 function loadSplash() {
