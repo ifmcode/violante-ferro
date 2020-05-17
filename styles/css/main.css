@@ -860,7 +860,7 @@ section {
 }
 #contact-section .section-wrapper {
   position: relative;
-  height: 100vh;
+  min-height: 100vh;
 }
 #contact-section .section-wrapper .image-wrapper {
   width: 50%;
