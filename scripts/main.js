@@ -3,7 +3,7 @@ const contactSection = $('#contact-section'),
   myIntentionSection = $('#services-section'),
   homeSection = $('#home-section');
 
-let shownSection,
+var shownSection,
   generalAnimation,
   isMobileMenuShown,
   isMobileSizes;
