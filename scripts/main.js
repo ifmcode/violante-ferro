@@ -74,7 +74,7 @@ function adjustHomeImage() {
     homeImage.css("top", "50%");
   }
 
-  if (homeImage.height() > (maxHeight * 1.1)) {
+  if (homeImage.height() > (maxHeight * 1.2)) {
     homeImage.css("top", "55%");
   } else {
     homeImage.css("top", "50%");
