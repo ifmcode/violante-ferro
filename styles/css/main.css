@@ -860,7 +860,7 @@ section {
 }
 #contact-section .section-wrapper {
   position: relative;
-  min-height: 100vh;
+  height: 100vh;
 }
 #contact-section .section-wrapper .image-wrapper {
   width: 50%;
@@ -1052,6 +1052,10 @@ section {
   }
   #contact-section {
     background-color: #000000;
+  }
+  #contact-section .section-wrapper {
+    height: auto;
+    min-height: 100vh;
   }
   #contact-section .section-wrapper .text-wrapper {
     top: auto;
