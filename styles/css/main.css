@@ -339,6 +339,7 @@ ul {
   height: 100%;
   background-color: #ffffff;
   z-index: 6;
+  display: none;
 }
 .splash .content-wrapper {
   position: absolute;
