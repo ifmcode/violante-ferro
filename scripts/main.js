@@ -15,8 +15,7 @@ $('document').ready(function () {
 
 function setInitialValues() {
   initializeVariables();
-  adjustHomeImage();
-  //loadSplash();
+  loadSplash();
   disableScroll();
 }
 
@@ -86,6 +85,7 @@ function loadSplash() {
   resetGeneralAnimation();
   const progressBar = $('.splash .progress-bar');
   generalAnimation.to(progressBar, 1, {'left':'0', ease: Power2.easeOut, onComplete: function() {
+    adjustHomeImage();
     removeSplash();
   }}, 0);
 }
