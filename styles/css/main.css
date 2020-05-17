@@ -1390,7 +1390,7 @@ section {
 }
 @media (min-height: 850px) and (max-width: 1025px) {
   #about-section .section-wrapper .image-wrapper .about-image {
-    top: 60%;
+    top: 50%;
   }
 }
 @media (min-height: 1100px) and (max-width: 1025px) {
